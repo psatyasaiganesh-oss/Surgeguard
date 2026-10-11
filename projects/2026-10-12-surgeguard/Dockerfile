@@ -1,0 +1,7 @@
+FROM python:3.12-slim
+WORKDIR /app
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+COPY --chown=10001:10001 . /app
+USER 10001:10001
+ENTRYPOINT ["python", "-m", "surgeguard"]
+CMD ["demo"]

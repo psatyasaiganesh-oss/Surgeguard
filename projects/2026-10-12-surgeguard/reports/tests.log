@@ -1,0 +1,44 @@
+test_adapter_programming_error_is_visible_and_releases_slot (test_client.ClientTests.test_adapter_programming_error_is_visible_and_releases_slot) ... ok
+test_attempt_cap (test_client.ClientTests.test_attempt_cap) ... ok
+test_breaker_blocks_without_making_extra_call (test_client.ClientTests.test_breaker_blocks_without_making_extra_call) ... ok
+test_bulkhead_rejects_before_downstream_call_and_releases (test_client.ClientTests.test_bulkhead_rejects_before_downstream_call_and_releases) ... ok
+test_cancellation_frees_slot_and_probe (test_client.ClientTests.test_cancellation_frees_slot_and_probe) ... ok
+test_client_error_does_not_open_circuit (test_client.ClientTests.test_client_error_does_not_open_circuit) ... ok
+test_concurrent_outage_obeys_shared_budget (test_client.ClientTests.test_concurrent_outage_obeys_shared_budget) ... ok
+test_deadline_cancels_slow_adapter (test_client.ClientTests.test_deadline_cancels_slow_adapter) ... ok
+test_full_jitter_spreads_retry_delays (test_client.ClientTests.test_full_jitter_spreads_retry_delays) ... ok
+test_network_failure_can_recover (test_client.ClientTests.test_network_failure_can_recover) ... ok
+test_only_selected_status_codes_are_retried (test_client.ClientTests.test_only_selected_status_codes_are_retried) ... ok
+test_per_attempt_timeout_can_recover_within_total_deadline (test_client.ClientTests.test_per_attempt_timeout_can_recover_within_total_deadline) ... ok
+test_protocol_errors_are_not_retried (test_client.ClientTests.test_protocol_errors_are_not_retried) ... ok
+test_retry_after_is_not_shortened_to_fit_deadline (test_client.ClientTests.test_retry_after_is_not_shortened_to_fit_deadline) ... ok
+test_success_and_failure_latency_are_separate (test_client.ClientTests.test_success_and_failure_latency_are_separate) ... ok
+test_transient_failure_recovers_on_second_attempt (test_client.ClientTests.test_transient_failure_recovers_on_second_attempt) ... ok
+test_writes_rejected_before_transport (test_client.ClientTests.test_writes_rejected_before_transport) ... ok
+test_zero_budget_still_permits_original_attempt (test_client.ClientTests.test_zero_budget_still_permits_original_attempt) ... ok
+test_capacity_exhaustion_and_bounded_refill (test_controls.BudgetTests.test_capacity_exhaustion_and_bounded_refill) ... ok
+test_invalid_configuration (test_controls.BudgetTests.test_invalid_configuration) ... ok
+test_no_refill_on_backwards_clock (test_controls.BudgetTests.test_no_refill_on_backwards_clock) ... ok
+test_zero_budget_blocks_retries (test_controls.BudgetTests.test_zero_budget_blocks_retries) ... ok
+test_failed_probe_reopens_and_cancelled_probe_can_retry (test_controls.CircuitTests.test_failed_probe_reopens_and_cancelled_probe_can_retry) ... ok
+test_old_success_does_not_revive_newly_opened_circuit (test_controls.CircuitTests.test_old_success_does_not_revive_newly_opened_circuit) ... ok
+test_open_single_probe_and_recovery (test_controls.CircuitTests.test_open_single_probe_and_recovery) ... ok
+test_success_resets_consecutive_failures (test_controls.CircuitTests.test_success_resets_consecutive_failures) ... ok
+test_credentials_injection_fragments_and_bad_ports_rejected (test_controls.ValidationTests.test_credentials_injection_fragments_and_bad_ports_rejected) ... ok
+test_loopback_only_prevents_accidental_external_calls (test_controls.ValidationTests.test_loopback_only_prevents_accidental_external_calls) ... ok
+test_policy_rejects_nonfinite_and_invalid_values (test_controls.ValidationTests.test_policy_rejects_nonfinite_and_invalid_values) ... ok
+test_retry_after_numeric_date_and_invalid (test_controls.ValidationTests.test_retry_after_numeric_date_and_invalid) ... ok
+test_body_without_content_length_is_capped (test_http.HttpTests.test_body_without_content_length_is_capped) ... ok
+test_complete_demo_invariants (test_http.HttpTests.test_complete_demo_invariants) ... ok
+test_deadline_includes_receiving_response_body (test_http.HttpTests.test_deadline_includes_receiving_response_body) ... ok
+test_head_request_returns_no_body (test_http.HttpTests.test_head_request_returns_no_body) ... ok
+test_header_limit_rejects_response (test_http.HttpTests.test_header_limit_rejects_response) ... ok
+test_real_tcp_transient_recovery (test_http.HttpTests.test_real_tcp_transient_recovery) ... ok
+test_rejects_duplicate_framing_and_chunked_encoding (test_http.HttpTests.test_rejects_duplicate_framing_and_chunked_encoding) ... ok
+test_rejects_oversized_content_length (test_http.HttpTests.test_rejects_oversized_content_length) ... ok
+test_rejects_truncated_body (test_http.HttpTests.test_rejects_truncated_body) ... ok
+
+----------------------------------------------------------------------
+Ran 39 tests in 0.725s
+
+OK

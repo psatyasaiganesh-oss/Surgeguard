@@ -1,0 +1,40 @@
+name: SurgeGuard validation
+
+on:
+  push:
+    paths:
+      - 'projects/2026-10-12-surgeguard/**'
+      - '.github/workflows/surgeguard.yml'
+  pull_request:
+    paths:
+      - 'projects/2026-10-12-surgeguard/**'
+      - '.github/workflows/surgeguard.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.12', '3.13']
+    defaults:
+      run:
+        working-directory: projects/2026-10-12-surgeguard
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Unit and real HTTP integration tests
+        run: python -m unittest discover -s tests -v
+      - name: Measured failure-injection demo with invariant checks
+        run: python -m surgeguard demo --json reports/ci-demo.json
+      - name: Compile all source
+        run: python -m compileall -q surgeguard tests

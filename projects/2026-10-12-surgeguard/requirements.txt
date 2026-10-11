@@ -1,0 +1,2 @@
+# Runtime, tests, and demo use only Python's standard library.
+# Python 3.12+ is the supported target. No pip install is needed.

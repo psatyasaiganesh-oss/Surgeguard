@@ -1,0 +1,46 @@
+{
+  "cli_serve_call_smoke": {
+    "backend_attempts": 16,
+    "logical_requests": 8,
+    "passed": true,
+    "successful_requests": 8
+  },
+  "compilation": {
+    "command": "python -m compileall -q surgeguard tests",
+    "passed": true
+  },
+  "demo": {
+    "all_eight_invariants_passed": true,
+    "report": "reports/demo.json"
+  },
+  "docker": {
+    "executed": false,
+    "reason": "Docker executable unavailable in this environment"
+  },
+  "platform": "Linux",
+  "python": "3.12.14",
+  "source_sha256": {
+    "surgeguard/__init__.py": "43e914503203393ee3434ebd87c0a7a1ac04925699c337ea5703726292650e38",
+    "surgeguard/__main__.py": "7088a825983085cfd5e4ee0707724a64e228696f095a8b8a320c43e621f48fd4",
+    "surgeguard/client.py": "3afe5deebab860c8f734dd3809a4c169522b18efd1056c1880562c090c53d65d",
+    "surgeguard/controls.py": "51f6aba1c9aa0daf3acf91346570882e826b4291bb69e4d0aefba355fb1af473",
+    "surgeguard/demo.py": "ba794050caece0d0320b5ce7cb68c0782d21768bcbb685bbaccb28972ef4aae3",
+    "surgeguard/lab.py": "d24a47cbe34bf21b30b9ef7d25fb3f9ef807ed62822077ac40ff318098aa8a6a",
+    "surgeguard/metrics.py": "65e974242cd20babd76a2307ca7cf8e1f6af50cbe31572e94677e994b49689a8",
+    "surgeguard/transport.py": "9169b943fd6bcb28b7e4f709eefc1a4209deefc9c2eab3927da0939cb9955cd0",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/test_client.py": "8bac148cd380f20f2b8b6aadda42e1db9eb7f34731b7737f2df076c196961508",
+    "tests/test_controls.py": "4be9652d92cafdde975fb511e9ffc69044287ddf8ae56a1abcd88e15498d093b",
+    "tests/test_http.py": "c56649c4ed7563bdf492fe828a5760a55b69c871fc811ae79b2980c2c0ca04f8"
+  },
+  "unit_and_integration_tests": {
+    "command": "python -X dev -W error::ResourceWarning -m unittest discover -s tests -v",
+    "elapsed_seconds": 0.760235,
+    "errors": 0,
+    "failures": 0,
+    "passed": true,
+    "skipped": 0,
+    "tests_run": 39
+  },
+  "validated_at_utc": "2026-10-11T20:05:39.003470+00:00"
+}
