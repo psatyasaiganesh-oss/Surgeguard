@@ -1,0 +1,119 @@
+{
+  "crash_recovery": {
+    "after_inbox_crash": {
+      "events": {
+        "pending": 1
+      },
+      "ingest": {
+        "accepted": 1
+      },
+      "outbox": {},
+      "payments": 0,
+      "sink_delivery_attempts": 0,
+      "sink_unique_deliveries": 0
+    },
+    "after_sink_crash": {
+      "events": {
+        "processed": 1
+      },
+      "ingest": {
+        "accepted": 1
+      },
+      "outbox": {
+        "inflight": 1
+      },
+      "payments": 1,
+      "sink_delivery_attempts": 1,
+      "sink_unique_deliveries": 1
+    },
+    "checks": {
+      "inbox_rollback_left_event_pending": true,
+      "intake_accepted": true,
+      "outbox_eventually_delivered": true,
+      "payment_projected": true,
+      "retry_did_not_duplicate_effect": true,
+      "sink_crash_created_one_unique_effect": true
+    },
+    "recovered": {
+      "events": {
+        "processed": 1
+      },
+      "ingest": {
+        "accepted": 1
+      },
+      "outbox": {
+        "delivered": 1
+      },
+      "payments": 1,
+      "sink_delivery_attempts": 2,
+      "sink_unique_deliveries": 1
+    }
+  },
+  "deliveries_offered": 978,
+  "generated_at_utc": "2026-10-12T20:01:51.734279+00:00",
+  "invariants": {
+    "crash_recovery_checks_pass": true,
+    "duplicates_detected": true,
+    "invalid_and_replayed_signatures_rejected": true,
+    "ledgergate_final_state_exact": true,
+    "ledgergate_fulfills_success_once": true,
+    "ledgergate_projects_every_payment": true,
+    "naive_baseline_duplicates_fulfillment": true,
+    "naive_baseline_exhibits_state_corruption": true
+  },
+  "ledgergate": {
+    "drain": {
+      "events_processed": 800,
+      "outbox_dispatched": 300,
+      "snapshot": {
+        "events": {
+          "processed": 592,
+          "stale": 208
+        },
+        "ingest": {
+          "accepted": 800,
+          "duplicate_effect": 62,
+          "duplicate_event": 76
+        },
+        "outbox": {
+          "delivered": 300
+        },
+        "payments": 400,
+        "sink_delivery_attempts": 300,
+        "sink_unique_deliveries": 300
+      }
+    },
+    "elapsed_seconds": 0.885633,
+    "expected_payments": 400,
+    "expected_unique_fulfillments": 300,
+    "final_state_mismatches": 0,
+    "intake": {
+      "accepted": 800,
+      "duplicate_effect": 62,
+      "duplicate_event": 76,
+      "event_conflict": 0,
+      "invalid_payload": 0,
+      "invalid_signature": 40
+    },
+    "projected_payments": 400,
+    "unique_fulfillments": 300
+  },
+  "naive_authenticated_baseline": {
+    "authenticated_deliveries": 938,
+    "duplicate_fulfillment_attempts": 103,
+    "elapsed_seconds": 0.01605,
+    "expected_unique_fulfillments": 300,
+    "final_state_mismatches": 167,
+    "fulfillment_attempts": 403
+  },
+  "payments": 400,
+  "platform": "Linux",
+  "python": "3.12.14",
+  "schema_version": 1,
+  "scope": "Synthetic local experiment; not Stripe traffic or a production benchmark",
+  "seed": 13,
+  "sources": [
+    "https://docs.stripe.com/webhooks",
+    "https://docs.stripe.com/api/idempotent_requests"
+  ]
+}

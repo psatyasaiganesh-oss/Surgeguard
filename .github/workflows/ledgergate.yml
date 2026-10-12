@@ -1,0 +1,40 @@
+name: LedgerGate
+
+on:
+  push:
+    paths:
+      - "projects/2026-10-13-ledgergate/**"
+      - ".github/workflows/ledgergate.yml"
+  pull_request:
+    paths:
+      - "projects/2026-10-13-ledgergate/**"
+      - ".github/workflows/ledgergate.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    defaults:
+      run:
+        working-directory: projects/2026-10-13-ledgergate
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: projects/2026-10-13-ledgergate/README.md
+      - name: Compile source
+        run: python -m compileall -q ledgergate tests scripts
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+      - name: Run deterministic failure lab
+        run: python -m ledgergate demo --payments 400 --seed 13 --json /tmp/ledgergate-demo.json > /dev/null
+      - name: Build container
+        run: docker build -t ledgergate .

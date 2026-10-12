@@ -1,0 +1,33 @@
+test_demo_validates_arguments (test_http_demo.DemoTests.test_demo_validates_arguments) ... ok
+test_deterministic_demo_proves_all_invariants (test_http_demo.DemoTests.test_deterministic_demo_proves_all_invariants) ... ok
+test_health_metrics_and_not_found (test_http_demo.HTTPTests.test_health_metrics_and_not_found) ... ok
+test_invalid_signature_and_protocol_limits_are_rejected (test_http_demo.HTTPTests.test_invalid_signature_and_protocol_limits_are_rejected) ... ok
+test_runtime_rejects_non_loopback_binding (test_http_demo.HTTPTests.test_runtime_rejects_non_loopback_binding) ... ok
+test_webhook_is_authenticated_and_processed_asynchronously (test_http_demo.HTTPTests.test_webhook_is_authenticated_and_processed_asynchronously) ... ok
+test_rejects_bad_identifiers_amount_version_currency_and_created (test_security_schema.SchemaTests.test_rejects_bad_identifiers_amount_version_currency_and_created) ... ok
+test_rejects_duplicate_json_fields (test_security_schema.SchemaTests.test_rejects_duplicate_json_fields) ... ok
+test_rejects_extra_fields_and_type_status_disagreement (test_security_schema.SchemaTests.test_rejects_extra_fields_and_type_status_disagreement) ... ok
+test_rejects_invalid_json_and_oversize (test_security_schema.SchemaTests.test_rejects_invalid_json_and_oversize) ... ok
+test_valid_event_and_effect_key (test_security_schema.SchemaTests.test_valid_event_and_effect_key) ... ok
+test_accepts_boundary_and_one_of_multiple_v1_values (test_security_schema.SignatureTests.test_accepts_boundary_and_one_of_multiple_v1_values) ... ok
+test_configuration_validation (test_security_schema.SignatureTests.test_configuration_validation) ... ok
+test_matches_documented_hmac_construction (test_security_schema.SignatureTests.test_matches_documented_hmac_construction) ... ok
+test_rejects_malformed_headers (test_security_schema.SignatureTests.test_rejects_malformed_headers) ... ok
+test_rejects_tamper_wrong_secret_old_and_future_replay (test_security_schema.SignatureTests.test_rejects_tamper_wrong_secret_old_and_future_replay) ... ok
+test_valid_signature_and_multiple_rotation_secrets (test_security_schema.SignatureTests.test_valid_signature_and_multiple_rotation_secrets) ... ok
+test_concurrent_duplicate_delivery_admits_once (test_service_store.StoreTests.test_concurrent_duplicate_delivery_admits_once) ... ok
+test_exact_duplicate_semantic_duplicate_and_conflicting_id (test_service_store.StoreTests.test_exact_duplicate_semantic_duplicate_and_conflicting_id) ... ok
+test_failed_payment_never_creates_fulfillment (test_service_store.StoreTests.test_failed_payment_never_creates_fulfillment) ... ok
+test_in_memory_store_is_supported (test_service_store.StoreTests.test_in_memory_store_is_supported) ... ok
+test_invalid_signature_and_payload_do_not_enter_inbox (test_service_store.StoreTests.test_invalid_signature_and_payload_do_not_enter_inbox) ... ok
+test_limits_are_validated (test_service_store.StoreTests.test_limits_are_validated) ... ok
+test_out_of_order_delivery_does_not_regress_state (test_service_store.StoreTests.test_out_of_order_delivery_does_not_regress_state) ... ok
+test_outbox_retry_uses_receiver_idempotency_key (test_service_store.StoreTests.test_outbox_retry_uses_receiver_idempotency_key) ... ok
+test_same_version_conflicting_state_is_quarantined (test_service_store.StoreTests.test_same_version_conflicting_state_is_quarantined) ... ok
+test_secure_intake_acknowledges_without_business_processing (test_service_store.StoreTests.test_secure_intake_acknowledges_without_business_processing) ... ok
+test_transaction_rollback_recovers_without_partial_projection (test_service_store.StoreTests.test_transaction_rollback_recovers_without_partial_projection) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 2.188s
+
+OK

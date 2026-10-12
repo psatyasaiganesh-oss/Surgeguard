@@ -1,0 +1,51 @@
+{
+  "date_asia_calcutta": "2026-10-13",
+  "environment": {
+    "platform": "Linux",
+    "python": "3.12.14"
+  },
+  "checks": {
+    "compileall": {
+      "command": "python3 -m compileall -q ledgergate tests scripts",
+      "exit_code": 0
+    },
+    "unit_and_integration_tests": {
+      "command": "python3 -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "passed": 28,
+      "failed": 0,
+      "elapsed_seconds": 2.188
+    },
+    "deterministic_demo": {
+      "command": "python3 -m ledgergate demo --payments 400 --seed 13 --json reports/demo.json",
+      "exit_code": 0,
+      "top_level_invariants_passed": 8,
+      "top_level_invariants_total": 8,
+      "crash_checks_passed": 6,
+      "crash_checks_total": 6
+    },
+    "http_sample_client": {
+      "method": "in-process loopback server plus python -m scripts.send_sample",
+      "exit_code": 0,
+      "receipt_status": "accepted"
+    },
+    "docker_build": {
+      "attempted": false,
+      "reason": "Docker executable was not available in the validation environment; CI is configured to build the image."
+    }
+  },
+  "experiment": {
+    "scope": "Synthetic local experiment; not Stripe traffic or a production benchmark",
+    "seed": 13,
+    "payments": 400,
+    "deliveries_offered": 978,
+    "naive_final_state_mismatches": 167,
+    "ledgergate_final_state_mismatches": 0,
+    "naive_duplicate_fulfillment_attempts": 103,
+    "ledgergate_duplicate_fulfillment_effects": 0,
+    "ledgergate_exact_duplicates_detected": 76,
+    "ledgergate_semantic_duplicates_detected": 62,
+    "invalid_or_replayed_signatures_rejected": 40,
+    "unique_fulfillments": 300
+  }
+}
