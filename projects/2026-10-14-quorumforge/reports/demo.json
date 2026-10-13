@@ -1,0 +1,118 @@
+{
+  "availability_and_handoff": {
+    "failed_nodes": [
+      "n1",
+      "n2"
+    ],
+    "handoff": {
+      "keys_delivered": 453,
+      "versions_delivered": 453
+    },
+    "hints_created": 453,
+    "keys_offered": 600,
+    "pending_hints_after_handoff": 0,
+    "sloppy_quorum_failures": 0,
+    "sloppy_quorum_successes": 600,
+    "strict_intended_quorum_failures": 76,
+    "strict_intended_quorum_successes": 524,
+    "under_replicated_after_handoff": 0,
+    "write_elapsed_seconds": 0.077881
+  },
+  "conflict_resolution": {
+    "branch_clocks": [
+      {
+        "c1": 2
+      },
+      {
+        "c1": 1,
+        "c6": 1
+      }
+    ],
+    "initial_clock": {
+      "c1": 1
+    },
+    "key": "cart:conflict-0",
+    "merged_context": {
+      "c1": 2,
+      "c6": 1
+    },
+    "naive_last_write_wins_updates_lost": 1,
+    "quorumforge_updates_lost_after_resolution": 0,
+    "resolution_clock": {
+      "c1": 3,
+      "c6": 1
+    },
+    "resolved_value": "{\"items\":[\"book\",\"pen\"]}",
+    "sibling_values": [
+      "{\"items\":[\"book\"]}",
+      "{\"items\":[\"pen\"]}"
+    ],
+    "siblings_after_resolution": 1,
+    "siblings_before_resolution": 2
+  },
+  "generated_at_utc": "2026-10-13T20:05:01.481639+00:00",
+  "invariants": {
+    "client_resolution_collapsed_siblings": true,
+    "concurrent_branches_preserved": true,
+    "hinted_handoff_drained": true,
+    "merkle_examined_less_than_full_scan": true,
+    "merkle_found_every_injected_fault": true,
+    "merkle_roots_converged": true,
+    "replication_restored": true,
+    "resolved_cart_preserved_both_updates": true,
+    "sloppy_quorum_accepted_every_write": true,
+    "strict_quorum_lost_availability": true,
+    "virtual_nodes_improved_balance": true
+  },
+  "merkle_repair": {
+    "divergent_buckets": 11,
+    "faults_injected": 12,
+    "full_scan_keys": 157,
+    "hash_nodes_compared": 57,
+    "keys_examined": 42,
+    "keys_repaired": 12,
+    "nodes": [
+      "n4",
+      "n5"
+    ],
+    "root_equal_after": true,
+    "root_equal_before": false,
+    "shared_keys": 157,
+    "versions_copied": 12
+  },
+  "partition_balance": {
+    "keys": 6000,
+    "nodes": 8,
+    "single_token_counts": {
+      "d1": 93,
+      "d2": 389,
+      "d3": 1436,
+      "d4": 1353,
+      "d5": 361,
+      "d6": 648,
+      "d7": 251,
+      "d8": 1469
+    },
+    "single_token_cv": 0.718619,
+    "virtual_node_counts": {
+      "d1": 631,
+      "d2": 845,
+      "d3": 793,
+      "d4": 790,
+      "d5": 783,
+      "d6": 715,
+      "d7": 829,
+      "d8": 614
+    },
+    "virtual_node_cv": 0.109226
+  },
+  "platform": "Linux",
+  "python": "3.12.14",
+  "schema_version": 1,
+  "scope": "Deterministic in-process simulation; not Amazon traffic or a production benchmark",
+  "seed": 14,
+  "sources": [
+    "https://www.amazon.science/publications/dynamo-amazons-highly-available-key-value-store",
+    "https://cdn.amazon.science/ac/1d/eb50c4064c538c8ac440ce6a1d91/dynamo-amazons-highly-available-key-value-store.pdf"
+  ]
+}

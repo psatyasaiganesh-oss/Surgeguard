@@ -1,0 +1,57 @@
+{
+  "date_asia_calcutta": "2026-10-14",
+  "environment": {
+    "platform": "Linux",
+    "python": "3.12.14"
+  },
+  "checks": {
+    "compileall": {
+      "command": "python3 -m compileall -q quorumforge tests scripts",
+      "exit_code": 0
+    },
+    "unit_and_integration_tests": {
+      "command": "python3 -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "passed": 35,
+      "failed": 0,
+      "elapsed_seconds": 2.734
+    },
+    "deterministic_fault_lab": {
+      "command": "python3 -m quorumforge demo --keys 600 --seed 14 --json reports/demo.json",
+      "exit_code": 0,
+      "invariants_passed": 11,
+      "invariants_total": 11
+    },
+    "http_client_demo": {
+      "method": "in-process loopback server plus python -m scripts.client_demo",
+      "exit_code": 0,
+      "final_divergent_keys": 0,
+      "final_under_replicated_keys": 0
+    },
+    "local_docker": {
+      "attempted": false,
+      "reason": "Docker executable was not available in the local validation environment; GitHub CI builds and runs the image."
+    }
+  },
+  "experiment": {
+    "scope": "Deterministic in-process simulation; not Amazon traffic or a production benchmark",
+    "seed": 14,
+    "writes_offered": 600,
+    "strict_quorum_successes": 524,
+    "strict_quorum_failures": 76,
+    "sloppy_quorum_successes": 600,
+    "sloppy_quorum_failures": 0,
+    "hints_created": 453,
+    "hints_delivered": 453,
+    "under_replicated_after_handoff": 0,
+    "replica_losses_injected": 12,
+    "replica_losses_repaired": 12,
+    "merkle_keys_examined": 42,
+    "full_scan_keys": 157,
+    "siblings_before_resolution": 2,
+    "siblings_after_resolution": 1,
+    "updates_lost_after_resolution": 0,
+    "single_token_placement_cv": 0.718619,
+    "virtual_node_placement_cv": 0.109226
+  }
+}

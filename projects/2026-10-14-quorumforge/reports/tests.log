@@ -1,0 +1,40 @@
+test_bucket_count_must_match_and_be_power_of_two (test_clock_ring_merkle.MerkleTests.test_bucket_count_must_match_and_be_power_of_two) ... ok
+test_difference_returns_keys_only_from_changed_buckets (test_clock_ring_merkle.MerkleTests.test_difference_returns_keys_only_from_changed_buckets) ... ok
+test_equal_indexes_compare_only_the_root (test_clock_ring_merkle.MerkleTests.test_equal_indexes_compare_only_the_root) ... ok
+test_missing_key_is_detected (test_clock_ring_merkle.MerkleTests.test_missing_key_is_detected) ... ok
+test_all_nodes_are_returned_when_count_is_omitted (test_clock_ring_merkle.RingTests.test_all_nodes_are_returned_when_count_is_omitted) ... ok
+test_invalid_ring_configuration_is_rejected (test_clock_ring_merkle.RingTests.test_invalid_ring_configuration_is_rejected) ... ok
+test_preference_list_is_stable_and_unique (test_clock_ring_merkle.RingTests.test_preference_list_is_stable_and_unique) ... ok
+test_virtual_nodes_improve_this_deterministic_distribution (test_clock_ring_merkle.RingTests.test_virtual_nodes_improve_this_deterministic_distribution) ... ok
+test_all_causal_relations (test_clock_ring_merkle.VectorClockTests.test_all_causal_relations) ... ok
+test_context_size_is_bounded (test_clock_ring_merkle.VectorClockTests.test_context_size_is_bounded) ... ok
+test_increment_merge_and_serialization (test_clock_ring_merkle.VectorClockTests.test_increment_merge_and_serialization) ... ok
+test_invalid_entries_and_exhaustion_are_rejected (test_clock_ring_merkle.VectorClockTests.test_invalid_entries_and_exhaustion_are_rejected) ... ok
+test_missing_entries_are_zero (test_clock_ring_merkle.VectorClockTests.test_missing_entries_are_zero) ... ok
+test_demo_arguments_are_validated (test_http_demo.DemoTests.test_demo_arguments_are_validated) ... ok
+test_demo_passes_every_invariant (test_http_demo.DemoTests.test_demo_passes_every_invariant) ... ok
+test_health_and_cluster_snapshot (test_http_demo.HTTPTests.test_health_and_cluster_snapshot) ... ok
+test_invalid_requests_are_bounded_and_rejected (test_http_demo.HTTPTests.test_invalid_requests_are_bounded_and_rejected) ... ok
+test_put_get_update_and_delete (test_http_demo.HTTPTests.test_put_get_update_and_delete) ... ok
+test_server_rejects_non_loopback_binding (test_http_demo.HTTPTests.test_server_rejects_non_loopback_binding) ... ok
+test_unavailable_quorum_returns_503 (test_http_demo.HTTPTests.test_unavailable_quorum_returns_503) ... ok
+test_anti_entropy_requires_reachable_distinct_nodes (test_node_cluster.ClusterTests.test_anti_entropy_requires_reachable_distinct_nodes) ... ok
+test_configuration_and_partition_validation (test_node_cluster.ClusterTests.test_configuration_and_partition_validation) ... ok
+test_delete_is_a_replicated_tombstone (test_node_cluster.ClusterTests.test_delete_is_a_replicated_tombstone) ... ok
+test_down_coordinator_is_rejected (test_node_cluster.ClusterTests.test_down_coordinator_is_rejected) ... ok
+test_merkle_repair_fixes_dropped_shared_key (test_node_cluster.ClusterTests.test_merkle_repair_fixes_dropped_shared_key) ... ok
+test_network_partition_creates_causal_siblings (test_node_cluster.ClusterTests.test_network_partition_creates_causal_siblings) ... ok
+test_read_repair_restores_missing_reachable_replica (test_node_cluster.ClusterTests.test_read_repair_restores_missing_reachable_replica) ... ok
+test_sloppy_quorum_creates_and_hands_off_hints (test_node_cluster.ClusterTests.test_sloppy_quorum_creates_and_hands_off_hints) ... ok
+test_unknown_context_node_is_rejected (test_node_cluster.ClusterTests.test_unknown_context_node_is_rejected) ... ok
+test_value_and_key_limits (test_node_cluster.ClusterTests.test_value_and_key_limits) ... ok
+test_write_fails_when_quorum_cannot_be_reached (test_node_cluster.ClusterTests.test_write_fails_when_quorum_cannot_be_reached) ... ok
+test_write_read_and_replication (test_node_cluster.ClusterTests.test_write_read_and_replication) ... ok
+test_concurrent_versions_remain_siblings (test_node_cluster.VersionMergeTests.test_concurrent_versions_remain_siblings) ... ok
+test_descendant_replaces_ancestor (test_node_cluster.VersionMergeTests.test_descendant_replaces_ancestor) ... ok
+test_equal_clock_with_different_data_is_corruption (test_node_cluster.VersionMergeTests.test_equal_clock_with_different_data_is_corruption) ... ok
+
+----------------------------------------------------------------------
+Ran 35 tests in 2.734s
+
+OK
