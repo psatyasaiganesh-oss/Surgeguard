@@ -1,0 +1,49 @@
+name: VaultGuard CI
+
+on:
+  push:
+    paths:
+      - "projects/2026-10-15-vaultguard/**"
+      - ".github/workflows/vaultguard-ci.yml"
+  pull_request:
+    paths:
+      - "projects/2026-10-15-vaultguard/**"
+      - ".github/workflows/vaultguard-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: projects/2026-10-15-vaultguard
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Compile
+        run: python -m compileall -q vaultguard tests
+      - name: Test
+        run: python -m unittest discover -v
+      - name: Run deterministic recovery lab
+        run: |
+          python -m vaultguard demo > /tmp/vaultguard-demo.json
+          python -c 'import json; assert json.load(open("/tmp/vaultguard-demo.json"))["success"]'
+
+  container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build tested image
+        run: docker build -t vaultguard:ci .
+      - name: Run recovery lab as non-root user
+        run: docker run --rm vaultguard:ci demo
