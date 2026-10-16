@@ -1,0 +1,50 @@
+{
+  "checks": [
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-v"
+      ],
+      "elapsed_seconds": 4.102715,
+      "exit_code": 0,
+      "name": "unittest"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "compileall",
+        "-q",
+        "shiftsafe",
+        "tests",
+        "scripts"
+      ],
+      "elapsed_seconds": 0.036663,
+      "exit_code": 0,
+      "name": "compile"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "shiftsafe",
+        "demo"
+      ],
+      "elapsed_seconds": 3.107683,
+      "exit_code": 0,
+      "name": "demo"
+    }
+  ],
+  "docker": {
+    "available": false,
+    "executed": false,
+    "reason": "Docker executable is not installed in this local environment; CI defines a container build/demo job."
+  },
+  "python": "3.12.14",
+  "recorded_at_utc": "2026-10-16T20:09:04.567815+00:00",
+  "scope": "Local synthetic validation only; no production or cloud deployment.",
+  "sqlite": "3.53.1"
+}

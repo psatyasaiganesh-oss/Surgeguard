@@ -1,0 +1,50 @@
+name: ShiftSafe CI
+
+on:
+  push:
+    paths:
+      - "projects/2026-10-17-shiftsafe/**"
+      - ".github/workflows/shiftsafe-ci.yml"
+  pull_request:
+    paths:
+      - "projects/2026-10-17-shiftsafe/**"
+      - ".github/workflows/shiftsafe-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    defaults:
+      run:
+        working-directory: projects/2026-10-17-shiftsafe
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Compile
+        run: python -m compileall -q shiftsafe tests
+      - name: Test concurrency, process crashes, and cutover invariants
+        run: python -m unittest discover -v
+      - name: Run synthetic demo
+        run: |
+          python -m shiftsafe demo > demo-ci.json
+          python -c 'import json; r=json.load(open("demo-ci.json", encoding="utf-8")); assert r["success"] and r["verified_before_finalization"]["mismatches"] == 0'
+
+  container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and test image
+        run: docker build -t shiftsafe-ci projects/2026-10-17-shiftsafe
+      - name: Run without root or network access
+        run: |
+          docker run --rm --network none --read-only --tmpfs /tmp:rw,noexec,nosuid,size=128m shiftsafe-ci demo > demo-container.json
+          python -c 'import json; assert json.load(open("demo-container.json", encoding="utf-8"))["success"]'

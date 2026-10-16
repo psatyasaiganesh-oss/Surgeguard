@@ -1,0 +1,68 @@
+{
+  "backfill": {
+    "batches": 10,
+    "checkpoint_survived_restart": true,
+    "expired_worker_fenced": true,
+    "final_fence": 2,
+    "restart_checkpoint": 100,
+    "source_rows_scanned": 1000,
+    "stale_snapshot_rows_skipped": 2
+  },
+  "environment": {
+    "platform": "Linux",
+    "python": "3.12.14",
+    "sqlite": "3.53.1",
+    "storage": "temporary local SQLite, WAL, synchronous=FULL"
+  },
+  "final_status": {
+    "backfill_complete": true,
+    "cursor": 1000,
+    "customers": 1000,
+    "data_version": 1404,
+    "fence": 2,
+    "legacy_customers": 0,
+    "operations": 1404,
+    "phase": "FINALIZED",
+    "projection_state": 1000,
+    "shadow_mismatches": 1,
+    "shadow_reads": 2,
+    "subscriptions_v2": 2904,
+    "watermark": 1000
+  },
+  "limits": "One local run; timing varies with hardware and scheduling. Not Stripe performance or proof of production zero downtime.",
+  "safety": {
+    "corrupt_cutover_blocked": true,
+    "corruption_mismatches": 1,
+    "idempotent_replay_revision_unchanged": true,
+    "legacy_rows_removed": 1000,
+    "mismatches_after_repair": 0,
+    "rollback_preserved_new_write": true,
+    "shadow_read_preserved_legacy": true
+  },
+  "success": true,
+  "timings": {
+    "concurrent_load_seconds": 1.022958,
+    "seed_seconds": 1.815533,
+    "writer_latency_ms_max": 20.005,
+    "writer_latency_ms_p50": 1.901,
+    "writer_latency_ms_p95": 5.825,
+    "writes_per_second_during_load": 391.02
+  },
+  "verified_before_finalization": {
+    "customers_checked": 1000,
+    "data_version": 1403,
+    "example_customer_ids": [],
+    "mismatches": 0,
+    "ok": true,
+    "source_digest": "49bc53e9637d676f9153b3c513780091196502ea951a57955b6e4a965e21c931",
+    "target_digest": "49bc53e9637d676f9153b3c513780091196502ea951a57955b6e4a965e21c931"
+  },
+  "workload": {
+    "batch_size": 100,
+    "concurrent_writer_operations": 400,
+    "scheduling": "one writer burst per captured batch; final checkpoint waits for last burst",
+    "seed_customers": 1000,
+    "subscriptions_per_customer": 3,
+    "writes_completed_while_backfill_active": 400
+  }
+}

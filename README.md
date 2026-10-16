@@ -7,6 +7,7 @@ Working, independent implementations inspired by documented company engineering 
 
 | Date | Project | Company problem | Run |
 | --- | --- | --- | --- |
+| 2026-10-17 | [ShiftSafe](projects/2026-10-17-shiftsafe/) | Stripe: migrate subscription schemas while preserving live writes, verified read cutover, and rollback | `cd projects/2026-10-17-shiftsafe && python -m shiftsafe demo` |
 | 2026-10-16 | [TraceLens](projects/2026-10-16-tracelens/) | Google Dapper/Cloud Trace: diagnose request latency across distributed services while controlling retained trace detail | `cd projects/2026-10-16-tracelens && python -m tracelens demo` |
 | 2026-10-15 | [VaultGuard](projects/2026-10-15-vaultguard/) | Rubrik: preserve backup integrity, detect corruption, and prove recovery after ransomware or storage faults | `cd projects/2026-10-15-vaultguard && python -m vaultguard demo` |
 | 2026-10-14 | [QuorumForge](projects/2026-10-14-quorumforge/) | Amazon Dynamo: keep key-value state available and repair replicas during continuous failures | `cd projects/2026-10-14-quorumforge && python -m quorumforge demo` |
