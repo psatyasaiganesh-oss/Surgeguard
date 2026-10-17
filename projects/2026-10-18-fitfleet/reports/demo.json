@@ -1,0 +1,126 @@
+{
+  "environment": {
+    "dependencies": "Python standard library only",
+    "platform": "Linux",
+    "python": "3.12.14",
+    "sqlite": "3.53.1"
+  },
+  "final_local_encoder_configuration": {
+    "code_revision": "v1",
+    "cpu_millis": 8000,
+    "enabled": true,
+    "last_tuned_s": 1000000,
+    "memory_mib": 8192,
+    "name": "encoder",
+    "opt_cpu": true,
+    "opt_memory": true,
+    "scope": "local configuration registry; no cluster deployment",
+    "version": 3
+  },
+  "limits": "Resource-time score, runtime, retries, and reservation savings are modeled. Timing of the Python tool itself is measured. No measured cloud cost savings.",
+  "measured_local_timings": {
+    "planning_ms": 30.894,
+    "total_demo_ms": 1184.589,
+    "verification_ms": 126.748
+  },
+  "modeled_holdout_comparison": {
+    "baseline": {
+      "cpu_reserved_seconds": 154171.8818335869,
+      "deadline_misses": 0,
+      "executions": 300,
+      "failures": 0,
+      "gib_reserved_seconds": 154171.8818335869,
+      "max_duration_ms": 146134.1191611058,
+      "oom_attempts": 0,
+      "p50_duration_ms": 58198.539009918895,
+      "p95_duration_ms": 115780.125,
+      "resource_time_score": 192714.85229198364,
+      "retry_attempts": 0,
+      "retry_executions": 0
+    },
+    "budgets": {
+      "baseline": {
+        "cpu_millis": 8000,
+        "memory_mib": 8192
+      },
+      "candidate": {
+        "cpu_millis": 4000,
+        "memory_mib": 7040
+      }
+    },
+    "candidate": {
+      "cpu_reserved_seconds": 77140.79214586926,
+      "deadline_misses": 0,
+      "executions": 300,
+      "failures": 0,
+      "gib_reserved_seconds": 132825.71062791944,
+      "max_duration_ms": 146134.1191611058,
+      "oom_attempts": 0,
+      "p50_duration_ms": 58198.539009918895,
+      "p95_duration_ms": 115780.125,
+      "resource_time_score": 110347.21980284913,
+      "retry_attempts": 1,
+      "retry_executions": 1
+    },
+    "checks": {
+      "baseline_healthy": true,
+      "every_runtime_within_budget": true,
+      "no_deadline_misses": true,
+      "no_failed_executions": true,
+      "p95_runtime_within_budget": true,
+      "retry_rate_within_budget": true,
+      "sufficient_resource_score_saving": true
+    },
+    "failed_checks": [],
+    "model": "Paired deterministic demand replay, not measured container performance or cloud billing",
+    "p95_runtime_ratio": 1.0,
+    "passed": true,
+    "resource_score_saving_pct": 42.74067696886109,
+    "retry_rate_pct": 0.33333333333333337,
+    "worst_runtime_ratio": 1.2
+  },
+  "recommendation": {
+    "baseline": {
+      "cpu_millis": 8000,
+      "memory_mib": 8192
+    },
+    "candidate": {
+      "cpu_millis": 4000,
+      "memory_mib": 7040
+    },
+    "idempotent_plan": true,
+    "statistics": {
+      "cpu_quantile_millis": 2576,
+      "cpu_reduction_pct": 50.0,
+      "memory_quantile_mib": 1498,
+      "memory_reduction_pct": 14.0625
+    }
+  },
+  "safety": {
+    "cpu_shift_rejected": [
+      "p95_runtime_within_budget",
+      "every_runtime_within_budget"
+    ],
+    "healthy_state": "MONITORED",
+    "memory_shift_failed_checks": [
+      "p95_runtime_within_budget",
+      "retry_rate_within_budget"
+    ],
+    "memory_shift_state": "ROLLED_BACK",
+    "operator_override_preserved": true,
+    "rejected_activation_blocked": true,
+    "restart_preserved_applied_version": true,
+    "rollback_restored_baseline": true,
+    "rollback_retry_did_not_change_version": true,
+    "stale_activation_blocked": true
+  },
+  "scope": "Independent synthetic demand replay and local SQLite configuration changes. No containers, cloud, or production traffic were used.",
+  "success": true,
+  "workload": {
+    "healthy_monitor_executions": 200,
+    "holdout_executions": 300,
+    "separate_rejected_and_operator_scenarios": true,
+    "shifted_monitor_executions": 200,
+    "training_executions": 1000
+  }
+}

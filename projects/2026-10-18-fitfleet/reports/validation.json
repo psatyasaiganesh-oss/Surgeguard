@@ -1,0 +1,53 @@
+{
+  "checks": [
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-v"
+      ],
+      "elapsed_seconds": 4.75579,
+      "exit_code": 0,
+      "name": "unittest"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "compileall",
+        "-q",
+        "fitfleet",
+        "tests",
+        "scripts"
+      ],
+      "elapsed_seconds": 0.072595,
+      "exit_code": 0,
+      "name": "compile"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "fitfleet",
+        "demo"
+      ],
+      "elapsed_seconds": 1.910763,
+      "exit_code": 0,
+      "name": "demo"
+    }
+  ],
+  "docker": {
+    "available": false,
+    "executed": false,
+    "reason": "Docker executable is unavailable locally; the GitHub Actions container job builds and runs the demo separately."
+  },
+  "external_operations": "No cloud account, cluster, production workload or live resource deployment used",
+  "measured": "Test outcomes and local Python command execution time",
+  "modeled": "Workload latency, memory guard retries, resource-time score and savings",
+  "python": "3.12.14",
+  "recorded_at_utc": "2026-10-17T20:14:12.187552+00:00",
+  "sqlite": "3.53.1",
+  "test_count": 68
+}

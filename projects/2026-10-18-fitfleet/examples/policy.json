@@ -1,0 +1,8 @@
+{
+  "retry_memory": true,
+  "max_cpu_reduction_bp": 5000,
+  "max_memory_reduction_bp": 1500,
+  "max_retry_rate_bp": 200,
+  "max_p95_runtime_ratio_bp": 10500,
+  "max_single_runtime_ratio_bp": 12500
+}
