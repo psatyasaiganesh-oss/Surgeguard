@@ -1,0 +1,13 @@
+{
+  "request_id": "bootstrap-v1",
+  "expected_revision": 0,
+  "operations": [
+    {"op": "create", "object": "folder:engineering"},
+    {"op": "create", "object": "group:backend"},
+    {"op": "create", "object": "document:roadmap"},
+    {"op": "touch", "resource": "folder:engineering", "relation": "owner", "subject": "user:owner"},
+    {"op": "touch", "resource": "folder:engineering", "relation": "editor", "subject": "group:backend#member"},
+    {"op": "touch", "resource": "group:backend", "relation": "member", "subject": "user:alice"},
+    {"op": "touch", "resource": "document:roadmap", "relation": "parent", "subject": "folder:engineering"}
+  ]
+}

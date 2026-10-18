@@ -1,0 +1,63 @@
+{
+  "benchmark": {
+    "cache": {
+      "entries": 1000,
+      "evictions": 0,
+      "hits": 1000,
+      "misses": 1000
+    },
+    "clock": "fixed synthetic clock; no expiries during benchmark",
+    "cold": {
+      "checks": 1000,
+      "checks_per_second": 3090.16,
+      "p50_ms": 0.302,
+      "p95_ms": 0.4463,
+      "seconds": 0.323608
+    },
+    "objects": 1001,
+    "scope": "single process, sequential checks, SQLite WAL on temporary local disk",
+    "tuples": 1001,
+    "warm": {
+      "checks": 1000,
+      "checks_per_second": 4237.33,
+      "p50_ms": 0.2128,
+      "p95_ms": 0.3384,
+      "seconds": 0.235998
+    }
+  },
+  "concurrent_read": {
+    "fresh_reader_denied": true,
+    "inflight_reader_never_observed_new_content": true,
+    "new_content_version": 3,
+    "old_snapshot_version": 2
+  },
+  "environment": {
+    "python": "3.12.14",
+    "sqlite": "3.53.1",
+    "system": "Linux"
+  },
+  "http_statuses": {
+    "identity_override": 400,
+    "non_admin_write": 403,
+    "owner_check": 200,
+    "revoked_read": 403
+  },
+  "implementation": "independent Google Zanzibar-inspired local lab",
+  "limits": [
+    "one local SQLite database; not a distributed Zanzibar implementation",
+    "synthetic microbenchmark; not a production SLA or company performance result",
+    "trusted operator and trusted server clock; loopback API only"
+  ],
+  "project": "ScopeGraph",
+  "scenarios": {
+    "cycle_batch_fully_rolled_back": true,
+    "expiry_without_revision_change_denied": true,
+    "nested_group_inheritance": true,
+    "old_revision_token_does_not_restore_access": true,
+    "proof_edges": 4,
+    "revocation_token_read_denied": true,
+    "tenant_access_isolated": true,
+    "tenant_revision_token_isolated": true,
+    "ttl_only_counterexample_would_allow_after_revoke": true
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "checks": [
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-v"
+      ],
+      "exit_code": 0,
+      "name": "unittest",
+      "seconds": 2.955146
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "compileall",
+        "-q",
+        "scopegraph",
+        "tests",
+        "scripts"
+      ],
+      "exit_code": 0,
+      "name": "compile",
+      "seconds": 0.025891
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "scopegraph",
+        "demo"
+      ],
+      "exit_code": 0,
+      "name": "demo",
+      "seconds": 1.219351
+    }
+  ],
+  "docker": {
+    "available": false,
+    "executed": false,
+    "reason": "Docker executable unavailable locally; container build and demo are separate CI checks."
+  },
+  "external_services": "none; no company system, cloud account, or production data accessed",
+  "measurement_scope": "actual local Python, SQLite, socket requests, tests, and sequential microbenchmark",
+  "python": "3.12.14",
+  "recorded_at_utc": "2026-10-18T20:15:58.055794+00:00",
+  "sqlite": "3.53.1",
+  "synthetic_inputs": "all identities, documents, graph relationships, and scenario clock",
+  "test_count": 95
+}

@@ -1,0 +1,50 @@
+name: ScopeGraph CI
+
+on:
+  push:
+    paths:
+      - "projects/2026-10-19-scopegraph/**"
+      - ".github/workflows/scopegraph-ci.yml"
+  pull_request:
+    paths:
+      - "projects/2026-10-19-scopegraph/**"
+      - ".github/workflows/scopegraph-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    defaults:
+      run:
+        working-directory: projects/2026-10-19-scopegraph
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Compile
+        run: python -m compileall -q scopegraph tests scripts
+      - name: Test authorization, tenant isolation, expiry, races, crashes, and HTTP
+        run: python -m unittest discover -v
+      - name: Run real synthetic API and snapshot demo
+        run: |
+          python -m scopegraph demo > demo-ci.json
+          python -c 'import json; r=json.load(open("demo-ci.json", encoding="utf-8")); assert r["concurrent_read"]["inflight_reader_never_observed_new_content"] and r["concurrent_read"]["fresh_reader_denied"]; assert r["benchmark"]["cache"]["hits"] == 1000; assert r["http_statuses"]["revoked_read"] == 403'
+
+  container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build non-root image and run all tests
+        run: docker build -t scopegraph-ci projects/2026-10-19-scopegraph
+      - name: Run without network or writable root filesystem
+        run: |
+          docker run --rm --network none --read-only --tmpfs /tmp:rw,noexec,nosuid,size=128m scopegraph-ci demo > demo-container.json
+          python -c 'import json; r=json.load(open("demo-container.json", encoding="utf-8")); assert r["scenarios"]["expiry_without_revision_change_denied"] and r["concurrent_read"]["inflight_reader_never_observed_new_content"]'
