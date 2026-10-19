@@ -1,0 +1,13 @@
+{
+  "producers": ["api-a", "api-b"],
+  "policy": {
+    "target_ppm": 999000,
+    "period_minutes": 43200,
+    "stale_after_seconds": 120,
+    "rules": [
+      {"name": "fast", "severity": "PAGE", "long_minutes": 60, "short_minutes": 5, "burn": "14.4", "min_requests": 100},
+      {"name": "slow", "severity": "PAGE", "long_minutes": 360, "short_minutes": 30, "burn": "6", "min_requests": 100},
+      {"name": "ticket", "severity": "TICKET", "long_minutes": 4320, "short_minutes": 360, "burn": "1", "min_requests": 100}
+    ]
+  }
+}

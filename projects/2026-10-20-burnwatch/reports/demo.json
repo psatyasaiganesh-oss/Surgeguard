@@ -1,0 +1,61 @@
+{
+  "benchmark": {
+    "evaluation_p50_ms": 1.4789,
+    "evaluation_p95_ms": 1.997,
+    "evaluations": 200,
+    "ingest_batches": 20,
+    "ingest_seconds": 0.152602,
+    "ingested_minute_reports": 10000,
+    "minute_reports_per_second": 65529.96,
+    "pruning": {
+      "before_minute": 1999740840,
+      "raw_deleted": 1360,
+      "rollups_deleted": 680
+    },
+    "pruning_preserved_evaluation": true,
+    "scope": "sequential local SQLite operations; synthetic minute aggregates, not live user requests"
+  },
+  "delivery": {
+    "attempted": 7,
+    "duplicate_deliveries": 1,
+    "injected_crash_after_store_before_ack": true,
+    "new_inbox_events": 6,
+    "outbox_pending": 0,
+    "unique_inbox_events": 7
+  },
+  "environment": {
+    "python": "3.12.14",
+    "sqlite": "3.53.1",
+    "system": "Linux"
+  },
+  "http_statuses": {
+    "evaluate": 200,
+    "identity_override": 400,
+    "invalid_key": 401,
+    "status": 200
+  },
+  "implementation": "independent Google SRE-inspired local alerting pipeline",
+  "limits": [
+    "scenario time and request-count aggregates are synthetic, not live user traffic",
+    "notification sink is a local SQLite inbox; no pager, SMS, email, or cloud service contacted",
+    "single local database; trusted producers, clock, and operator; loopback API only"
+  ],
+  "project": "BurnWatch",
+  "scenario": {
+    "batch_retry_replayed": true,
+    "brief_spike_multiwindow_did_not_page": true,
+    "brief_spike_naive_threshold_would_page": true,
+    "fast_multiwindow_reset_minutes": 5,
+    "missing_producer_quality": "STALE",
+    "missing_producer_status": "PAGE_HOLD",
+    "producers": 2,
+    "rollup_integrity_passed": true,
+    "severity_page_transitions": 1,
+    "simultaneously_firing_rules": 3,
+    "single_long_window_reset_minutes": 56,
+    "sustained_20_percent_error_page_detection_minutes": 5,
+    "ticket_recovery_minutes": 359,
+    "warmup_minutes": 4320,
+    "zero_traffic_status": "NO_TRAFFIC"
+  }
+}

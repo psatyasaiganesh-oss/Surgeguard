@@ -1,0 +1,50 @@
+name: BurnWatch CI
+
+on:
+  push:
+    paths:
+      - "projects/2026-10-20-burnwatch/**"
+      - ".github/workflows/burnwatch-ci.yml"
+  pull_request:
+    paths:
+      - "projects/2026-10-20-burnwatch/**"
+      - ".github/workflows/burnwatch-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    defaults:
+      run:
+        working-directory: projects/2026-10-20-burnwatch
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Compile
+        run: python -m compileall -q burnwatch tests scripts examples
+      - name: Test policy math, completeness, retries, races, crashes, and API security
+        run: python -m unittest discover -v
+      - name: Run telemetry and notification demo
+        run: |
+          python -m burnwatch demo > demo-ci.json
+          python -c 'import json; r=json.load(open("demo-ci.json", encoding="utf-8")); assert r["scenario"]["sustained_20_percent_error_page_detection_minutes"] == 5; assert r["scenario"]["missing_producer_status"] == "PAGE_HOLD"; assert r["delivery"]["outbox_pending"] == 0; assert r["benchmark"]["pruning_preserved_evaluation"]'
+
+  container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build non-root image and run tests
+        run: docker build -t burnwatch-ci projects/2026-10-20-burnwatch
+      - name: Run without network or writable root filesystem
+        run: |
+          docker run --rm --network none --read-only --tmpfs /tmp:rw,noexec,nosuid,size=128m burnwatch-ci demo > demo-container.json
+          python -c 'import json; r=json.load(open("demo-container.json", encoding="utf-8")); assert r["scenario"]["brief_spike_multiwindow_did_not_page"]; assert r["delivery"]["duplicate_deliveries"] == 1; assert r["delivery"]["outbox_pending"] == 0'

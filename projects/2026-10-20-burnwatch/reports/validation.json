@@ -1,0 +1,54 @@
+{
+  "checks": [
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-v"
+      ],
+      "exit_code": 0,
+      "name": "unittest",
+      "seconds": 2.652873
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "compileall",
+        "-q",
+        "burnwatch",
+        "tests",
+        "scripts",
+        "examples"
+      ],
+      "exit_code": 0,
+      "name": "compile",
+      "seconds": 0.037349
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "burnwatch",
+        "demo"
+      ],
+      "exit_code": 0,
+      "name": "demo",
+      "seconds": 0.968199
+    }
+  ],
+  "docker": {
+    "available": false,
+    "executed": false,
+    "reason": "Docker executable unavailable locally; container build/test/demo are separate CI checks."
+  },
+  "measured": "actual local command times, SQLite report ingestion/evaluation, HTTP responses, and inbox effects",
+  "not_claimed": "live user request throughput, production alert precision, Google performance, or real pager delivery",
+  "python": "3.12.14",
+  "recorded_at_utc": "2026-10-19T20:17:54.804318+00:00",
+  "sqlite": "3.53.1",
+  "synthetic": "minute-level request counts, error patterns, producer interruptions, scenario clock",
+  "test_count": 82
+}
