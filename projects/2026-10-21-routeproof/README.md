@@ -115,6 +115,17 @@ The demo proves these behaviors with synthetic data:
 
 Run the command to obtain measurements for the current machine. CI runs the same demo; these numbers are engineering-lab measurements, not production network performance.
 
+## Recorded validation
+
+GitHub Actions [run 39489865599](https://github.com/psatyasaiganesh-oss/Surgeguard/actions/runs/39489865599) exercised the initial implementation commit on Linux:
+
+- 60 automated tests passed on Python 3.11, 3.12, and 3.13.
+- The non-root Docker image built successfully; its tests and demo passed with no network, a read-only root filesystem, and a temporary writable `/tmp`.
+- Python 3.13.16 / SQLite 3.45.1 completed 500 actual topology analyses in 1.389952 seconds: 359.72 analyses/second, 2.7725 ms p50, and 2.8042 ms p95.
+- The demo blocked the unsafe backbone and DNS plans, failed closed on an injected validator timeout, replayed a post-actuation crash without a second topology version increment, completed and rolled back the safe plan, and marked an approved plan stale after out-of-band drift.
+
+See [reports/validation.json](reports/validation.json) and [reports/demo.json](reports/demo.json). Timings are runner-specific microbenchmarks over a seven-node, 21-link synthetic graph; they are not production capacity claims.
+
 ## Security and validation choices
 
 - Tokens are never accepted in URLs or printed by the service; only their hashes are stored.

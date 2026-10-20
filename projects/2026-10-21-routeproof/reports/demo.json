@@ -1,0 +1,46 @@
+{
+  "source": {
+    "commit": "87b89fbc720958bb8d261ff14c36ff32270357c7",
+    "workflow_run": 39489865599,
+    "job": 118859852672,
+    "environment": "GitHub Actions ubuntu-latest"
+  },
+  "approvals_after_first": 1,
+  "approvals_after_second": 2,
+  "benchmark": {
+    "analyses": 500,
+    "analyses_per_second": 359.72,
+    "elapsed_seconds": 1.389952,
+    "p50_ms": 2.7725,
+    "p95_ms": 2.8042
+  },
+  "completed_state": "SUCCEEDED",
+  "crash_injected": true,
+  "device_version_after_crash": 2,
+  "dns_cascade_blocked": true,
+  "dns_violation_codes": [
+    "SINGLE_FAILURE_TOLERANCE",
+    "STEP_INVARIANT",
+    "SINGLE_FAILURE_TOLERANCE"
+  ],
+  "drift_plan_state": "STALE",
+  "http": {
+    "authenticated_plan_state": "ROLLED_BACK",
+    "authenticated_status": 200,
+    "health_ok": true,
+    "health_status": 200,
+    "unauthorized_status": 401
+  },
+  "idempotent_replay_recorded": true,
+  "resumed_state": "AWAITING_OBSERVATION",
+  "rollback_state": "ROLLED_BACK",
+  "scope": "synthetic topology and local SQLite stores; not production network control",
+  "topology_drift_blocked": true,
+  "unsafe_backbone_blocked": true,
+  "unsafe_backbone_violation_codes": [
+    "SINGLE_FAILURE_TOLERANCE",
+    "STEP_INVARIANT",
+    "SINGLE_FAILURE_TOLERANCE"
+  ],
+  "validator_timeout_failed_closed": true
+}
