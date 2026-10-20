@@ -1,0 +1,226 @@
+{
+  "version": 1,
+  "nodes": [
+    {
+      "id": "core",
+      "kind": "core"
+    },
+    {
+      "id": "dc-a",
+      "kind": "datacenter"
+    },
+    {
+      "id": "dc-b",
+      "kind": "datacenter"
+    },
+    {
+      "id": "dc-c",
+      "kind": "datacenter"
+    },
+    {
+      "id": "dns-a",
+      "kind": "dns"
+    },
+    {
+      "id": "dns-b",
+      "kind": "dns"
+    },
+    {
+      "id": "noc",
+      "kind": "noc"
+    }
+  ],
+  "links": [
+    {
+      "id": "dc-a-backbone-1",
+      "a": "dc-a",
+      "b": "core",
+      "plane": "backbone",
+      "up": true,
+      "failure_domain": "dc-a-fiber-1"
+    },
+    {
+      "id": "dc-a-backbone-2",
+      "a": "dc-a",
+      "b": "core",
+      "plane": "backbone",
+      "up": true,
+      "failure_domain": "dc-a-fiber-2"
+    },
+    {
+      "id": "dc-a-backbone-3",
+      "a": "dc-a",
+      "b": "core",
+      "plane": "backbone",
+      "up": true,
+      "failure_domain": "dc-a-fiber-3"
+    },
+    {
+      "id": "dc-b-backbone-1",
+      "a": "dc-b",
+      "b": "core",
+      "plane": "backbone",
+      "up": true,
+      "failure_domain": "dc-b-fiber-1"
+    },
+    {
+      "id": "dc-b-backbone-2",
+      "a": "dc-b",
+      "b": "core",
+      "plane": "backbone",
+      "up": true,
+      "failure_domain": "dc-b-fiber-2"
+    },
+    {
+      "id": "dc-b-backbone-3",
+      "a": "dc-b",
+      "b": "core",
+      "plane": "backbone",
+      "up": true,
+      "failure_domain": "dc-b-fiber-3"
+    },
+    {
+      "id": "dc-c-backbone-1",
+      "a": "dc-c",
+      "b": "core",
+      "plane": "backbone",
+      "up": true,
+      "failure_domain": "dc-c-fiber-1"
+    },
+    {
+      "id": "dc-c-backbone-2",
+      "a": "dc-c",
+      "b": "core",
+      "plane": "backbone",
+      "up": true,
+      "failure_domain": "dc-c-fiber-2"
+    },
+    {
+      "id": "dc-c-backbone-3",
+      "a": "dc-c",
+      "b": "core",
+      "plane": "backbone",
+      "up": true,
+      "failure_domain": "dc-c-fiber-3"
+    },
+    {
+      "id": "dns-a-backbone-1",
+      "a": "dns-a",
+      "b": "core",
+      "plane": "backbone",
+      "up": true,
+      "failure_domain": "dns-a-fiber-1"
+    },
+    {
+      "id": "dns-a-backbone-2",
+      "a": "dns-a",
+      "b": "core",
+      "plane": "backbone",
+      "up": true,
+      "failure_domain": "dns-a-fiber-2"
+    },
+    {
+      "id": "dns-b-backbone-1",
+      "a": "dns-b",
+      "b": "core",
+      "plane": "backbone",
+      "up": true,
+      "failure_domain": "dns-b-fiber-1"
+    },
+    {
+      "id": "dns-b-backbone-2",
+      "a": "dns-b",
+      "b": "core",
+      "plane": "backbone",
+      "up": true,
+      "failure_domain": "dns-b-fiber-2"
+    },
+    {
+      "id": "noc-core-1",
+      "a": "noc",
+      "b": "core",
+      "plane": "management",
+      "up": true,
+      "failure_domain": "mgmt-core-1"
+    },
+    {
+      "id": "noc-core-2",
+      "a": "noc",
+      "b": "core",
+      "plane": "management",
+      "up": true,
+      "failure_domain": "mgmt-core-2"
+    },
+    {
+      "id": "noc-dc-a-1",
+      "a": "noc",
+      "b": "dc-a",
+      "plane": "management",
+      "up": true,
+      "failure_domain": "mgmt-dc-a-1"
+    },
+    {
+      "id": "noc-dc-a-2",
+      "a": "noc",
+      "b": "dc-a",
+      "plane": "management",
+      "up": true,
+      "failure_domain": "mgmt-dc-a-2"
+    },
+    {
+      "id": "noc-dc-b-1",
+      "a": "noc",
+      "b": "dc-b",
+      "plane": "management",
+      "up": true,
+      "failure_domain": "mgmt-dc-b-1"
+    },
+    {
+      "id": "noc-dc-b-2",
+      "a": "noc",
+      "b": "dc-b",
+      "plane": "management",
+      "up": true,
+      "failure_domain": "mgmt-dc-b-2"
+    },
+    {
+      "id": "noc-dc-c-1",
+      "a": "noc",
+      "b": "dc-c",
+      "plane": "management",
+      "up": true,
+      "failure_domain": "mgmt-dc-c-1"
+    },
+    {
+      "id": "noc-dc-c-2",
+      "a": "noc",
+      "b": "dc-c",
+      "plane": "management",
+      "up": true,
+      "failure_domain": "mgmt-dc-c-2"
+    }
+  ],
+  "requirements": {
+    "core": "core",
+    "datacenters": [
+      "dc-a",
+      "dc-b",
+      "dc-c"
+    ],
+    "dns_nodes": [
+      "dns-a",
+      "dns-b"
+    ],
+    "operator": "noc",
+    "management_targets": [
+      "core",
+      "dc-a",
+      "dc-b",
+      "dc-c"
+    ],
+    "min_dns_advertisers": 1,
+    "max_disconnected_datacenters": 0,
+    "max_disconnected_management": 0,
+    "require_single_failure_tolerance": true
+  }
+}

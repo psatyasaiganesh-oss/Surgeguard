@@ -1,0 +1,22 @@
+{
+  "plan_id": "unsafe-backbone",
+  "reason": "Remove every backbone path for one data center in one maintenance plan.",
+  "expected_topology_version": 1,
+  "steps": [
+    {
+      "action": "set_link",
+      "link_id": "dc-a-backbone-1",
+      "up": false
+    },
+    {
+      "action": "set_link",
+      "link_id": "dc-a-backbone-2",
+      "up": false
+    },
+    {
+      "action": "set_link",
+      "link_id": "dc-a-backbone-3",
+      "up": false
+    }
+  ]
+}

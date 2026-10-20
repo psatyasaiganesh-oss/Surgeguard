@@ -1,0 +1,12 @@
+{
+  "plan_id": "safe-maintenance",
+  "reason": "Replace one backbone circuit while redundant paths remain available.",
+  "expected_topology_version": 1,
+  "steps": [
+    {
+      "action": "set_link",
+      "link_id": "dc-a-backbone-1",
+      "up": false
+    }
+  ]
+}

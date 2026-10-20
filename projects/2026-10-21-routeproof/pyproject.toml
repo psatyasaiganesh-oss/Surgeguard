@@ -1,0 +1,8 @@
+[project]
+name = "routeproof"
+version = "1.0.0"
+description = "Fail-closed synthetic network change safety service"
+requires-python = ">=3.11"
+
+[tool.ruff]
+line-length = 100

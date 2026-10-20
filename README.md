@@ -7,6 +7,7 @@ Working, independent implementations inspired by documented company engineering 
 
 | Date | Project | Company problem | Run |
 | --- | --- | --- | --- |
+| 2026-10-21 | [RouteProof](projects/2026-10-21-routeproof/) | Meta: prevent a maintenance command from cascading through backbone, DNS, and recovery dependencies | `cd projects/2026-10-21-routeproof && python -m routeproof demo` |
 | 2026-10-20 | [BurnWatch](projects/2026-10-20-burnwatch/) | Google SRE: detect sustained error-budget burn while controlling noisy pages and treating missing telemetry as unknown | `cd projects/2026-10-20-burnwatch && python -m burnwatch demo` |
 | 2026-10-19 | [ScopeGraph](projects/2026-10-19-scopegraph/) | Google Zanzibar: prevent stale authorization from exposing content published after access revocation | `cd projects/2026-10-19-scopegraph && python -m scopegraph demo` |
 | 2026-10-18 | [FitFleet](projects/2026-10-18-fitfleet/) | Netflix Stratum: reduce over-provisioned batch CPU/memory through verified recommendations and regression-aware rollback | `cd projects/2026-10-18-fitfleet && python -m fitfleet demo` |
