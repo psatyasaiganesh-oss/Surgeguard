@@ -1,0 +1,35 @@
+{
+  "job_id": "example-word-count",
+  "shards": [
+    {
+      "shard_id": "shard-0000",
+      "payload": {
+        "text": "distributed systems need deterministic output",
+        "primary_delay_ms": 180,
+        "backup_delay_ms": 5
+      }
+    },
+    {
+      "shard_id": "shard-0001",
+      "payload": {
+        "text": "speculative execution reduces tail latency",
+        "primary_delay_ms": 10,
+        "backup_delay_ms": 5
+      }
+    },
+    {
+      "shard_id": "shard-0002",
+      "payload": {
+        "text": "leases and hashes protect result integrity",
+        "primary_delay_ms": 10,
+        "backup_delay_ms": 5
+      }
+    }
+  ],
+  "policy": {
+    "lease_ms": 2000,
+    "speculate_after_ms": 40,
+    "max_attempts": 3,
+    "max_speculative_attempts": 1
+  }
+}

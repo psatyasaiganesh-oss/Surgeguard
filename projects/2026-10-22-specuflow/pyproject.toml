@@ -1,0 +1,8 @@
+[project]
+name = "specuflow"
+version = "1.0.0"
+description = "Durable speculative task execution with exactly-once logical result commit"
+requires-python = ">=3.11"
+
+[tool.ruff]
+line-length = 100

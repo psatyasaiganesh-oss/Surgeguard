@@ -1,0 +1,51 @@
+name: SpecuFlow CI
+
+on:
+  push:
+    paths:
+      - "projects/2026-10-22-specuflow/**"
+      - ".github/workflows/specuflow-ci.yml"
+  pull_request:
+    paths:
+      - "projects/2026-10-22-specuflow/**"
+      - ".github/workflows/specuflow-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12", "3.13"]
+    defaults:
+      run:
+        working-directory: projects/2026-10-22-specuflow
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Compile
+        run: python -m compileall -q specuflow tests scripts
+      - name: Unit and integration tests
+        run: python -m unittest discover -s tests -v
+      - name: Reproducible validation
+        run: python scripts/validate.py
+
+  container:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: projects/2026-10-22-specuflow
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build non-root image
+        run: docker build --tag specuflow:test .
+      - name: Test image
+        run: docker run --rm --network none --read-only --tmpfs /tmp:rw,noexec,nosuid,size=64m specuflow:test python -m unittest discover -s tests -v
+      - name: Demo image
+        run: docker run --rm --network none --read-only --tmpfs /tmp:rw,noexec,nosuid,size=64m specuflow:test

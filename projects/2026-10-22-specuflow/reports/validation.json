@@ -1,0 +1,66 @@
+{
+  "compileall": {
+    "exit_code": 0,
+    "seconds": 0.033899
+  },
+  "demo": {
+    "exit_code": 0,
+    "result": {
+      "commit_race": {
+        "attempts": 2,
+        "backup_committed": true,
+        "logical_counter_records": 1,
+        "primary_duplicate_suppressed": true
+      },
+      "integrity": {
+        "checked": 16,
+        "failed_shards": [],
+        "ok": true
+      },
+      "lease_recovery": {
+        "abandoned_attempt": "2e18429b7b106b0fde6bb68f44644379",
+        "claim_before_expiry": false,
+        "retry_kind": "RETRY",
+        "state_after_restart": "SUCCEEDED"
+      },
+      "nondeterminism": {
+        "detected": true,
+        "error_code": "NONDETERMINISTIC_OUTPUT",
+        "job_state": "FAILED"
+      },
+      "scope": "local threads, SQLite, and synthetic delays; not Google infrastructure or production capacity",
+      "straggler_experiment": {
+        "baseline_completion_seconds": 0.325259,
+        "exactly_once_counters": true,
+        "measured_completion_improvement_percent": 62.73,
+        "outputs_match": true,
+        "shards": 16,
+        "speculative_attempts": 1,
+        "speculative_completion_seconds": 0.121229,
+        "workers": 4
+      },
+      "throughput_benchmark": {
+        "completion_seconds": 0.617913,
+        "end_to_end_seconds": 0.619634,
+        "tasks": 200,
+        "tasks_per_second": 322.77,
+        "workers": 8
+      }
+    },
+    "seconds": 1.363971
+  },
+  "docker": {
+    "available_locally": false,
+    "executed_by_this_script": false
+  },
+  "environment": {
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "python": "3.12.14",
+    "sqlite": "3.53.1"
+  },
+  "tests": {
+    "count": 58,
+    "exit_code": 0,
+    "seconds": 0.870776
+  }
+}
