@@ -1,0 +1,107 @@
+{
+  "compileall": {
+    "exit_code": 0,
+    "seconds": 0.030875
+  },
+  "demo": {
+    "exit_code": 0,
+    "result": {
+      "benchmark": {
+        "converged": true,
+        "documents": 120,
+        "integrity_verified": true,
+        "logical_mutations": 360,
+        "logical_mutations_per_second": 179.01,
+        "replication_operations_accepted": 720,
+        "seconds": 2.011024,
+        "unresolved_conflicts": 0
+      },
+      "project": "MergeMesh",
+      "scenario": {
+        "delete_update_conflict": {
+          "candidates": 2,
+          "explicit_delete_resolution_converged": true
+        },
+        "field_aware_merge": {
+          "disjoint_edits_preserved": true,
+          "sync_converged": true,
+          "values": {
+            "availability": "BACKORDER",
+            "price": 90
+          }
+        },
+        "lost_ack_retry": {
+          "first_delivery_accepted": 1,
+          "recovered_without_duplicate_version": true,
+          "retry_duplicates": 1
+        },
+        "replicas_share_etag": true,
+        "restart_recovered": true,
+        "same_field_conflict": {
+          "candidates": 2,
+          "resolution_converged": true,
+          "resolution_value": 87,
+          "surfaced": true,
+          "sync_converged": true
+        },
+        "tampered_replication_rejected": true,
+        "whole_document_lww": {
+          "lost_disjoint_price_edit": true,
+          "winner": {
+            "availability": "BACKORDER",
+            "price": 100,
+            "title": "Keyboard"
+          },
+          "winner_region": "west"
+        }
+      },
+      "verification": {
+        "all_replicas_valid": true,
+        "replica_stats": [
+          {
+            "audit_events": 30,
+            "deliveries": 20,
+            "documents": 1,
+            "field_versions": 5,
+            "operations": 10,
+            "region": "east",
+            "unresolved_conflicts": 0
+          },
+          {
+            "audit_events": 24,
+            "deliveries": 20,
+            "documents": 1,
+            "field_versions": 5,
+            "operations": 10,
+            "region": "west",
+            "unresolved_conflicts": 0
+          },
+          {
+            "audit_events": 24,
+            "deliveries": 20,
+            "documents": 1,
+            "field_versions": 5,
+            "operations": 10,
+            "region": "central",
+            "unresolved_conflicts": 0
+          }
+        ]
+      }
+    },
+    "seconds": 3.264591
+  },
+  "docker": {
+    "available_locally": false,
+    "executed_by_this_script": false
+  },
+  "environment": {
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "python": "3.12.14",
+    "sqlite": "3.53.1"
+  },
+  "tests": {
+    "count": 107,
+    "exit_code": 0,
+    "seconds": 7.768922
+  }
+}

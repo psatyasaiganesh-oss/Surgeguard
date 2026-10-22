@@ -1,0 +1,8 @@
+[project]
+name = "mergemesh"
+version = "1.0.0"
+description = "Conflict-visible, authenticated multi-region document replication lab"
+requires-python = ">=3.11"
+
+[tool.ruff]
+line-length = 100
