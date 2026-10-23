@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cachefence"
+version = "1.0.0"
+description = "Race-safe cache invalidation and consistency observability lab"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{name = "Satya Sai Ganesh"}]
+dependencies = []
+
+[project.scripts]
+cachefence = "cachefence.__main__:main"
+
+[tool.setuptools]
+packages = ["cachefence"]

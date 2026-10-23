@@ -7,6 +7,7 @@ Working, independent implementations inspired by documented company engineering 
 
 | Date | Project | Company problem | Run |
 | --- | --- | --- | --- |
+| 2026-10-24 | [CacheFence](projects/2026-10-24-cachefence/) | Meta: prevent a delayed cache fill from overwriting a newer invalidation, even after value eviction, and detect observable inconsistency | `cd projects/2026-10-24-cachefence && python -m cachefence demo` |
 | 2026-10-23 | [MergeMesh](projects/2026-10-23-mergemesh/) | Microsoft Azure Cosmos DB: preserve independent multi-region edits and expose true write conflicts instead of silently selecting a whole-item winner | `cd projects/2026-10-23-mergemesh && python -m mergemesh demo` |
 | 2026-10-22 | [SpecuFlow](projects/2026-10-22-specuflow/) | Google MapReduce: reduce straggler-driven job tail latency without double-committing outputs or counters | `cd projects/2026-10-22-specuflow && python -m specuflow demo` |
 | 2026-10-21 | [RouteProof](projects/2026-10-21-routeproof/) | Meta: prevent a maintenance command from cascading through backbone, DNS, and recovery dependencies | `cd projects/2026-10-21-routeproof && python -m routeproof demo` |

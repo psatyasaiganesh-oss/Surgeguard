@@ -1,0 +1,9 @@
+.git
+__pycache__
+*.pyc
+build
+*.egg-info
+*.db
+*.db-shm
+*.db-wal
+reports/

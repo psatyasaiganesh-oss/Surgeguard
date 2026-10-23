@@ -1,0 +1,119 @@
+{
+  "compileall": {
+    "exit_code": 0,
+    "seconds": 0.041248
+  },
+  "demo": {
+    "exit_code": 0,
+    "result": {
+      "benchmark": {
+        "elapsed_ms": 2887.46,
+        "keys": 80,
+        "latency_us_p50": 1365.77,
+        "latency_us_p95": 1888.88,
+        "note": "local SQLite microbenchmark; not a production capacity claim",
+        "origin_reads_during_warm_phase": 0,
+        "throughput_reads_per_second": 692.65,
+        "warm_reads": 2000
+      },
+      "passed": true,
+      "project": "CacheFence",
+      "scenarios": {
+        "consistency_probe": {
+          "after_delivery": {
+            "age_ns": 103,
+            "checks": 2,
+            "classification": "invalidation_lag",
+            "status": "resolved"
+          },
+          "first": {
+            "age_ns": 0,
+            "checks": 1,
+            "classification": "invalidation_lag",
+            "status": "retry"
+          },
+          "passed": true,
+          "second": {
+            "age_ns": 101,
+            "checks": 2,
+            "classification": "invalidation_lag",
+            "status": "alert"
+          }
+        },
+        "durable_eviction_fence": {
+          "entry_absent": true,
+          "fence_survived": true,
+          "fill_status": "stale",
+          "passed": true
+        },
+        "guarded_stale_fill": {
+          "fence_version": 2,
+          "passed": true,
+          "returned_value": {
+            "value": 43
+          },
+          "returned_version": 2,
+          "stale_fill_retried": true,
+          "stale_rejections": 1
+        },
+        "lost_ack_retry": {
+          "first": {
+            "acknowledged": 0,
+            "applied": 1,
+            "claimed": 1,
+            "duplicates": 0,
+            "failed": 0,
+            "outdated": 0
+          },
+          "outbox": {
+            "dead": 0,
+            "delivered": 1,
+            "delivering": 0,
+            "pending": 0
+          },
+          "passed": true,
+          "retry": {
+            "acknowledged": 1,
+            "applied": 0,
+            "claimed": 1,
+            "duplicates": 1,
+            "failed": 0,
+            "outdated": 0
+          }
+        },
+        "naive_stale_fill": {
+          "cache_version": 1,
+          "origin_version": 2,
+          "stale": true
+        },
+        "same_version_integrity": {
+          "passed": true,
+          "quarantine_incidents": 1,
+          "rejected": true
+        },
+        "singleflight": {
+          "all_version_one": true,
+          "callers": 32,
+          "elapsed_ms": 549.832,
+          "origin_reads": 1,
+          "passed": true
+        }
+      }
+    },
+    "seconds": 4.89699
+  },
+  "docker": {
+    "available_locally": false,
+    "executed_by_this_script": false
+  },
+  "environment": {
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "python": "3.12.14",
+    "sqlite": "3.53.1"
+  },
+  "tests": {
+    "count": 82,
+    "exit_code": 0,
+    "seconds": 7.308596
+  }
+}
