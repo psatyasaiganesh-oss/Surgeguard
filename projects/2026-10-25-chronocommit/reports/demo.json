@@ -1,0 +1,75 @@
+{
+  "accounts": {
+    "destination": "savings-8",
+    "source": "checking-5",
+    "third": "reserve-2"
+  },
+  "commit_wait": {
+    "calls": 6,
+    "manual_nanoseconds_advanced": 606
+  },
+  "crash_recovery": {
+    "crash_injected": true,
+    "participant_count": 2,
+    "replayed_after_restart": true
+  },
+  "external_order": {
+    "first_commit_ts": 10000353,
+    "later_commit_ts": 10000555,
+    "ordered": true
+  },
+  "final_balances": {
+    "checking-5": 7400,
+    "reserve-2": 2700,
+    "savings-8": 6900
+  },
+  "historical_balances": {
+    "checking-5": 10000,
+    "savings-8": 5000
+  },
+  "idempotent_retry": {
+    "same_txn": true,
+    "total_after_retry": 17000,
+    "was_replayed": true
+  },
+  "initial_commit_timestamps": [
+    10000050,
+    10000151,
+    10000252
+  ],
+  "integrity": {
+    "audit_entries": 26,
+    "metadata": {
+      "last_clock_latest_ns": 10000656,
+      "last_commit_ts": 10000656,
+      "last_committed_ts": 10000555
+    },
+    "shards": {
+      "shard-00": {
+        "audit_entries": 6,
+        "intents": 0,
+        "prepared": 0,
+        "versions": 3
+      },
+      "shard-01": {
+        "audit_entries": 8,
+        "intents": 0,
+        "prepared": 0,
+        "versions": 4
+      },
+      "shard-02": {
+        "audit_entries": 4,
+        "intents": 0,
+        "prepared": 0,
+        "versions": 2
+      }
+    },
+    "transactions": 7
+  },
+  "invariants": {
+    "historical_snapshot_preserved": true,
+    "stale_writer_rejected": true,
+    "total_balance_conserved": true
+  }
+}
+

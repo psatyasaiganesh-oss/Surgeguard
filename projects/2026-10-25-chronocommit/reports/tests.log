@@ -1,0 +1,16 @@
+Command: python -m unittest discover -s tests -v
+Environment: CPython 3.12.14; SQLite 3.53.1; Linux 6.18.55 x86_64
+Result: Ran 91 tests in 7.575525 seconds
+Status: OK
+
+Covered categories:
+- bounded-clock intervals, commit wait, rollback detection, validation
+- MVCC visibility, historical reads, tombstones, digests
+- authenticated prepare/commit and replay idempotency
+- stale-version and concurrent-writer conflicts
+- crash recovery before decision, after decision, mid-finalize, and before ACK
+- logical-request idempotency and exact replay snapshots
+- coordinator/participant configuration and audit tampering
+- account invariants, insufficient funds, overflow, tenant isolation
+- loopback HTTP authentication, strict JSON, routing, and security headers
+

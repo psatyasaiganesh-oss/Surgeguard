@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chronocommit"
+version = "1.0.0"
+description = "Recoverable MVCC transaction lab with bounded-clock commit wait"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{name = "Satya Sai Ganesh"}]
+dependencies = []
+
+[project.scripts]
+chronocommit = "chronocommit.__main__:main"
+
+[tool.setuptools]
+packages = ["chronocommit"]
+

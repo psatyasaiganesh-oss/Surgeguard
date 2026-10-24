@@ -1,0 +1,10 @@
+.git
+__pycache__
+*.pyc
+build
+*.egg-info
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+reports/
+
