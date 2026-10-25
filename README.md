@@ -7,6 +7,7 @@ Working, independent implementations inspired by documented company engineering 
 
 | Date | Project | Company problem | Run |
 | --- | --- | --- | --- |
+| 2026-10-26 | [CellGuard](projects/2026-10-26-cellguard/) | AWS: contain noisy-neighbor and poison-work failures with deterministic shuffle shards, fair admission, and fenced worker leases | `cd projects/2026-10-26-cellguard && python -m cellguard demo` |
 | 2026-10-25 | [ChronoCommit](projects/2026-10-25-chronocommit/) | Google Spanner: keep cross-shard transactions atomic and order their observable commits despite clock uncertainty and process crashes | `cd projects/2026-10-25-chronocommit && python -m chronocommit demo` |
 | 2026-10-24 | [CacheFence](projects/2026-10-24-cachefence/) | Meta: prevent a delayed cache fill from overwriting a newer invalidation, even after value eviction, and detect observable inconsistency | `cd projects/2026-10-24-cachefence && python -m cachefence demo` |
 | 2026-10-23 | [MergeMesh](projects/2026-10-23-mergemesh/) | Microsoft Azure Cosmos DB: preserve independent multi-region edits and expose true write conflicts instead of silently selecting a whole-item winner | `cd projects/2026-10-23-mergemesh && python -m mergemesh demo` |

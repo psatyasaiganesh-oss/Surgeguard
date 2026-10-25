@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cellguard"
+version = "1.0.0"
+description = "Shuffle-sharded multi-tenant work queue reliability lab"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Satya Sai Ganesh"}]
+
+[project.scripts]
+cellguard = "cellguard.__main__:main"
+
+[tool.setuptools]
+packages = ["cellguard"]

@@ -1,0 +1,10 @@
+Command: python -m unittest discover -s tests -v
+Environment: CPython 3.12.14, SQLite 3.53.1, Linux x86-64
+Coverage areas: validation, deterministic assignment, zone spread, blast-radius analysis,
+admission isolation, cell capacity/state, policy CAS, idempotency, fair claims, priorities,
+global in-flight limits, concurrent submit/claim races, retries, dead letters, lease expiry, fencing, tenant-scoped reads,
+payload/audit tamper detection, strict authenticated HTTP, demo, and benchmark invariants.
+
+Ran 54 tests in 5.845s
+
+OK

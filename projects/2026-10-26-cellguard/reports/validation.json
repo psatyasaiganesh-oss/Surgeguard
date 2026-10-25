@@ -1,0 +1,103 @@
+{
+  "benchmark": {
+    "exit_code": 0,
+    "result": {
+      "end_to_end_jobs_per_second": 297.44,
+      "job_count": 500,
+      "processed": 500,
+      "processing_seconds": 0.809324,
+      "submit_latency_ms": {
+        "p50": 1.69812,
+        "p95": 2.095602
+      },
+      "submit_seconds": 0.871659,
+      "tenant_count": 100,
+      "verification": {
+        "assignments": 100,
+        "audit_entries": 1500,
+        "cells": 8,
+        "jobs": 500
+      }
+    },
+    "seconds": 1.777305
+  },
+  "compileall": {
+    "exit_code": 0,
+    "seconds": 0.030926
+  },
+  "demo": {
+    "exit_code": 0,
+    "result": {
+      "blast_radius": {
+        "cell_count": 8,
+        "distinct_virtual_shards": 24,
+        "failed_cells": ["cell-03", "cell-04"],
+        "fully_impacted": 120,
+        "fully_impacted_fraction": 0.05,
+        "improvement_vs_traditional": 5.0,
+        "noisy_tenant": "tenant-0000",
+        "partially_overlapping": 995,
+        "pooled_fully_impacted_fraction": 1.0,
+        "shard_size": 2,
+        "tenant_count": 2400,
+        "traditional_four_shard_fraction": 0.25,
+        "unaffected": 1285
+      },
+      "cell_failover": {
+        "assigned_cells": ["cell-02", "cell-04"],
+        "failed_cell_avoided": true,
+        "no_cross_shard_escape_when_all_assigned_cells_failed": true
+      },
+      "fair_admission": {
+        "fair_claim_tenants": ["peer-00053", "tenant-0000", "peer-00053", "tenant-0000"],
+        "noisy_tenant_accepted": 12,
+        "noisy_tenant_limit_enforced": true,
+        "normal_tenant_accepted": 4,
+        "shared_cell": "cell-03"
+      },
+      "lease_recovery": {
+        "fencing_advanced": true,
+        "first_fencing_token": 1,
+        "second_fencing_token": 2,
+        "stale_completion_rejected": true
+      },
+      "stats": {
+        "cells": {"cell-03": 4, "cell-04": 9},
+        "jobs": {"queued": 13, "succeeded": 5},
+        "metrics": {"claimed": 6, "lease_expired_requeued": 1, "submitted": 18, "succeeded": 5}
+      },
+      "topology": {
+        "cells": [
+          {"capacity": 200, "cell_id": "cell-00", "zone": "zone-0"},
+          {"capacity": 200, "cell_id": "cell-01", "zone": "zone-1"},
+          {"capacity": 200, "cell_id": "cell-02", "zone": "zone-2"},
+          {"capacity": 200, "cell_id": "cell-03", "zone": "zone-3"},
+          {"capacity": 200, "cell_id": "cell-04", "zone": "zone-0"},
+          {"capacity": 200, "cell_id": "cell-05", "zone": "zone-1"},
+          {"capacity": 200, "cell_id": "cell-06", "zone": "zone-2"},
+          {"capacity": 200, "cell_id": "cell-07", "zone": "zone-3"}
+        ],
+        "epoch": "6da25c33f3467fe8329bf4a0fa3e1f647fbbdbb42877b98984642f89f31bf975",
+        "shard_size": 2,
+        "theoretical_virtual_shards": 24,
+        "zone_spread": true
+      },
+      "verification": {"assignments": 4, "audit_entries": 35, "cells": 8, "jobs": 18}
+    },
+    "seconds": 0.151688
+  },
+  "docker": {
+    "available_locally": false,
+    "executed_by_this_script": false
+  },
+  "environment": {
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "python": "3.12.14",
+    "sqlite": "3.53.1"
+  },
+  "tests": {
+    "count": 54,
+    "exit_code": 0,
+    "seconds": 5.844618
+  }
+}
