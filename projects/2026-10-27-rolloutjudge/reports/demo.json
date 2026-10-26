@@ -1,0 +1,76 @@
+{
+  "evidence_idempotency": {
+    "changed_batch_rejected": true,
+    "first_replayed": false,
+    "same_batch_replayed": true
+  },
+  "integrity": {
+    "receipt_valid": true,
+    "tampered_receipt_rejected": true,
+    "verification": {
+      "audit_entries": 41,
+      "evidence_sets": 31,
+      "policies": 1,
+      "runs": 5
+    }
+  },
+  "judgment_replay": {
+    "receipt_unchanged": true,
+    "replayed": true
+  },
+  "policy": {
+    "digest": "cfca1cf43fcc9abbd5c7c59efd2e579d43898c78c944ae176be6725df2177af6",
+    "metric_count": 4,
+    "version": 1
+  },
+  "scenarios": {
+    "failed": {
+      "coverage": {"evaluable": 8, "expected": 8, "nodata": 0},
+      "reason": "critical_regression",
+      "regressions": [
+        {"metric": "latency_ms", "trial": "zone-a"},
+        {"metric": "error_rate", "trial": "zone-a"},
+        {"metric": "latency_ms", "trial": "zone-b"},
+        {"metric": "error_rate", "trial": "zone-b"}
+      ],
+      "score": 50.0,
+      "verdict": "FAIL"
+    },
+    "inconclusive": {
+      "coverage": {"evaluable": 6, "expected": 8, "nodata": 2},
+      "reason": "required_evidence_missing_or_incomplete",
+      "regressions": [],
+      "score": 100.0,
+      "verdict": "INCONCLUSIVE"
+    },
+    "manual": {
+      "coverage": {"evaluable": 8, "expected": 8, "nodata": 0},
+      "reason": "score_requires_manual_review",
+      "regressions": [
+        {"metric": "cpu_ratio", "trial": "zone-a"},
+        {"metric": "cpu_ratio", "trial": "zone-b"}
+      ],
+      "score": 75.0,
+      "verdict": "MANUAL"
+    },
+    "safe": {
+      "coverage": {"evaluable": 8, "expected": 8, "nodata": 0},
+      "reason": "score_at_or_above_pass_threshold",
+      "regressions": [],
+      "score": 100.0,
+      "verdict": "PASS"
+    }
+  },
+  "stats": {
+    "counters": {
+      "evidence_ingested": 31,
+      "policies_written": 1,
+      "runs_started": 5,
+      "verdict_fail": 1,
+      "verdict_inconclusive": 1,
+      "verdict_manual": 1,
+      "verdict_pass": 1
+    },
+    "runs": {"collecting": 1, "judged": 4}
+  }
+}

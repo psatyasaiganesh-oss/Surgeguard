@@ -1,0 +1,104 @@
+{
+  "benchmark": {
+    "exit_code": 0,
+    "result": {
+      "analyses": 100,
+      "end_to_end_analyses_per_second": 51.51,
+      "end_to_end_seconds": 1.941228,
+      "judgment_latency_ms": {"p50": 3.606765, "p95": 5.459079},
+      "passed": 100,
+      "verification": {
+        "audit_entries": 601,
+        "evidence_sets": 400,
+        "policies": 1,
+        "runs": 100
+      }
+    },
+    "seconds": 2.121724
+  },
+  "compileall": {"exit_code": 0, "seconds": 0.094036},
+  "demo": {
+    "exit_code": 0,
+    "result": {
+      "evidence_idempotency": {
+        "changed_batch_rejected": true,
+        "first_replayed": false,
+        "same_batch_replayed": true
+      },
+      "integrity": {
+        "receipt_valid": true,
+        "tampered_receipt_rejected": true,
+        "verification": {
+          "audit_entries": 41,
+          "evidence_sets": 31,
+          "policies": 1,
+          "runs": 5
+        }
+      },
+      "judgment_replay": {"receipt_unchanged": true, "replayed": true},
+      "policy": {
+        "digest": "cfca1cf43fcc9abbd5c7c59efd2e579d43898c78c944ae176be6725df2177af6",
+        "metric_count": 4,
+        "version": 1
+      },
+      "scenarios": {
+        "failed": {
+          "coverage": {"evaluable": 8, "expected": 8, "nodata": 0},
+          "reason": "critical_regression",
+          "regressions": [
+            {"metric": "latency_ms", "trial": "zone-a"},
+            {"metric": "error_rate", "trial": "zone-a"},
+            {"metric": "latency_ms", "trial": "zone-b"},
+            {"metric": "error_rate", "trial": "zone-b"}
+          ],
+          "score": 50.0,
+          "verdict": "FAIL"
+        },
+        "inconclusive": {
+          "coverage": {"evaluable": 6, "expected": 8, "nodata": 2},
+          "reason": "required_evidence_missing_or_incomplete",
+          "regressions": [],
+          "score": 100.0,
+          "verdict": "INCONCLUSIVE"
+        },
+        "manual": {
+          "coverage": {"evaluable": 8, "expected": 8, "nodata": 0},
+          "reason": "score_requires_manual_review",
+          "regressions": [
+            {"metric": "cpu_ratio", "trial": "zone-a"},
+            {"metric": "cpu_ratio", "trial": "zone-b"}
+          ],
+          "score": 75.0,
+          "verdict": "MANUAL"
+        },
+        "safe": {
+          "coverage": {"evaluable": 8, "expected": 8, "nodata": 0},
+          "reason": "score_at_or_above_pass_threshold",
+          "regressions": [],
+          "score": 100.0,
+          "verdict": "PASS"
+        }
+      },
+      "stats": {
+        "counters": {
+          "evidence_ingested": 31,
+          "policies_written": 1,
+          "runs_started": 5,
+          "verdict_fail": 1,
+          "verdict_inconclusive": 1,
+          "verdict_manual": 1,
+          "verdict_pass": 1
+        },
+        "runs": {"collecting": 1, "judged": 4}
+      }
+    },
+    "seconds": 0.251523
+  },
+  "docker": {"available_locally": false, "executed_by_this_script": false},
+  "environment": {
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "python": "3.12.14",
+    "sqlite": "3.53.1"
+  },
+  "tests": {"count": 67, "exit_code": 0, "seconds": 6.29543}
+}

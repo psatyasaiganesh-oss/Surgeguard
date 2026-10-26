@@ -1,0 +1,10 @@
+Command: python -m unittest discover -s tests -v
+Environment: CPython 3.12.14, SQLite 3.53.1, Linux x86-64
+Coverage areas: model validation, Mann-Whitney and tie handling, false-discovery adjustment,
+effect guardrails, four verdict paths, policy snapshots, idempotent runs/evidence/judgments,
+concurrent retries, optimistic versions, service isolation, receipt signing, digest/MAC tampering,
+strict authenticated HTTP, deterministic demo, and benchmark invariants.
+
+Ran 67 tests in 6.295s
+
+OK
