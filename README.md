@@ -7,6 +7,7 @@ Working, independent implementations inspired by documented company engineering 
 
 | Date | Project | Company problem | Run |
 | --- | --- | --- | --- |
+| 2026-10-28 | [ClearFlow](projects/2026-10-28-clearflow/) | Stripe: prove clearing, timeliness, and completeness across immutable money-movement events and review corrective entries before commit | `cd projects/2026-10-28-clearflow && python -m clearflow demo` |
 | 2026-10-27 | [RolloutJudge](projects/2026-10-27-rolloutjudge/) | Netflix/Google: replace slow, unreliable manual canary review with durable statistical judgments and verifiable rollout evidence | `cd projects/2026-10-27-rolloutjudge && python -m rolloutjudge demo` |
 | 2026-10-26 | [CellGuard](projects/2026-10-26-cellguard/) | AWS: contain noisy-neighbor and poison-work failures with deterministic shuffle shards, fair admission, and fenced worker leases | `cd projects/2026-10-26-cellguard && python -m cellguard demo` |
 | 2026-10-25 | [ChronoCommit](projects/2026-10-25-chronocommit/) | Google Spanner: keep cross-shard transactions atomic and order their observable commits despite clock uncertainty and process crashes | `cd projects/2026-10-25-chronocommit && python -m chronocommit demo` |

@@ -1,0 +1,17 @@
+ClearFlow recorded validation
+Environment: CPython 3.12.14, SQLite 3.53.1, Linux x86-64
+Command: python -m unittest discover -s tests -v
+Result: 88 tests passed in 9.140368 seconds
+
+Coverage themes:
+- exact minor-unit and balanced-posting validation
+- immutable event and account-currency invariants
+- concurrent and changed-content idempotency retries
+- out-of-order clearing and producer completeness manifests
+- clearing, timeliness, completeness, PASS/FAIL/INCONCLUSIVE behavior
+- signed tenant-bound quality attestations and tamper rejection
+- correction impact previews, author exclusion, two independent approvals
+- revision-fenced atomic reversal and replacement with retry recovery
+- event/audit/report/manifest/proposal integrity replay
+- strict tenant-isolated HTTP parsing and security headers
+- deterministic demo and controlled benchmark

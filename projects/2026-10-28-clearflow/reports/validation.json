@@ -1,0 +1,87 @@
+{
+  "benchmark": {
+    "elapsed_seconds": 0.547355,
+    "events": 400,
+    "flows": 200,
+    "flows_per_second": 365.39,
+    "integrity": {
+      "accounts": 203,
+      "audit_entries": 605,
+      "events": 400,
+      "manifests": 1,
+      "postings": 1000,
+      "proposals": 0,
+      "quality_runs": 1,
+      "tenants": 1,
+      "valid": true
+    },
+    "integrity_scan_ms": 16.168486,
+    "postings": 1000,
+    "quality_evaluation_ms": 3.99476,
+    "score": 100.0,
+    "two_event_flow_latency_ms": {
+      "p50": 1.835302,
+      "p95": 2.733373
+    },
+    "verdict": "PASS"
+  },
+  "checks": {
+    "benchmark_wrapper_seconds": 0.574311,
+    "compileall": true,
+    "demo_seconds": 0.043779,
+    "tests_passed": 88,
+    "tests_seconds": 9.140368,
+    "total_seconds": 9.78517
+  },
+  "demo": {
+    "correction": {
+      "applied_revision": 4,
+      "independent_approvals": 2,
+      "retry_returned_same_result": true,
+      "self_approval_rejected": true
+    },
+    "integrity": {
+      "accounts": 17,
+      "audit_entries": 37,
+      "events": 9,
+      "manifests": 4,
+      "postings": 23,
+      "proposals": 1,
+      "quality_runs": 5,
+      "tenants": 4,
+      "valid": true
+    },
+    "project": "ClearFlow",
+    "safety": {
+      "attestation_valid": true,
+      "changed_retry_rejected": true,
+      "event_retry_replayed": true,
+      "tampered_attestation_rejected": true
+    },
+    "scenarios": {
+      "late_release": {
+        "late_events": 1,
+        "verdict": "FAIL"
+      },
+      "missing_release": {
+        "missing_references": 1,
+        "verdict": "FAIL"
+      },
+      "out_of_order_healthy": {
+        "score": 100.0,
+        "verdict": "PASS"
+      },
+      "wrong_dimension": {
+        "after_correction": "PASS",
+        "before": "FAIL",
+        "uncleared_accounts": 2
+      }
+    }
+  },
+  "environment": {
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "python": "3.12.14",
+    "sqlite": "3.53.1"
+  },
+  "project": "ClearFlow"
+}

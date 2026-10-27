@@ -1,0 +1,45 @@
+{
+  "correction": {
+    "applied_revision": 4,
+    "independent_approvals": 2,
+    "retry_returned_same_result": true,
+    "self_approval_rejected": true
+  },
+  "integrity": {
+    "accounts": 17,
+    "audit_entries": 37,
+    "events": 9,
+    "manifests": 4,
+    "postings": 23,
+    "proposals": 1,
+    "quality_runs": 5,
+    "tenants": 4,
+    "valid": true
+  },
+  "project": "ClearFlow",
+  "safety": {
+    "attestation_valid": true,
+    "changed_retry_rejected": true,
+    "event_retry_replayed": true,
+    "tampered_attestation_rejected": true
+  },
+  "scenarios": {
+    "late_release": {
+      "late_events": 1,
+      "verdict": "FAIL"
+    },
+    "missing_release": {
+      "missing_references": 1,
+      "verdict": "FAIL"
+    },
+    "out_of_order_healthy": {
+      "score": 100.0,
+      "verdict": "PASS"
+    },
+    "wrong_dimension": {
+      "after_correction": "PASS",
+      "before": "FAIL",
+      "uncleared_accounts": 2
+    }
+  }
+}
