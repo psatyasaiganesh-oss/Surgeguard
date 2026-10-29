@@ -1,0 +1,7 @@
+Command: python -m unittest discover -s tests -v
+Environment: CPython 3.12.14, SQLite 3.53.1, Linux x86-64
+Result: PASS
+Tests: 94
+Unittest reported duration: 10.774 seconds
+
+Coverage areas: model and path validation; file-access tracing; monotonic baseline publication; safe selection and full-suite fallbacks; deterministic worker planning; concurrent idempotency; shadow-mode rollout and quarantine; signed manifests; immutable evidence; chained-audit integrity; repository-bound HTTP authentication; strict JSON handling; deterministic demo and benchmark invariants.

@@ -1,0 +1,94 @@
+{
+  "benchmark": {
+    "candidate_tests": 22,
+    "changed_files": 4,
+    "integrity": {
+      "audit_entries": 207,
+      "baselines": 1,
+      "repositories": 1,
+      "selections": 202,
+      "shadow_results": 2,
+      "valid": true
+    },
+    "integrity_scan_ms": 296.420397,
+    "inventory_files": 1251,
+    "requests_per_second": 110.6,
+    "selection_fraction": 0.022,
+    "selection_latency_ms": {
+      "p50": 8.827059,
+      "p95": 10.472474
+    },
+    "selection_requests": 200,
+    "suite_tests": 1000,
+    "worker_estimated_ms": [
+      96.0,
+      95.0,
+      90.0,
+      90.0,
+      94.0,
+      93.0,
+      92.0,
+      91.0
+    ],
+    "worker_load_spread_ms": 6.0
+  },
+  "checks": {
+    "automated_tests": 94,
+    "bytecode_compilation": "PASS",
+    "test_process_seconds": 10.871631,
+    "unittest_reported_seconds": 10.774
+  },
+  "demo": {
+    "clean_shadow_runs": 2,
+    "guardrails": {
+      "mandatory_test_selected": true,
+      "previous_failure_selected": true,
+      "root_change_runs_full_suite": true,
+      "unknown_file_runs_full_suite": true
+    },
+    "integrity": {
+      "audit_entries": 14,
+      "baselines": 1,
+      "repositories": 1,
+      "selections": 7,
+      "shadow_results": 3,
+      "valid": true
+    },
+    "localized_selection": {
+      "candidate_tests": [
+        "tests/discovery_test.py",
+        "tests/payments_test.py",
+        "tests/sticky_failure_test.py"
+      ],
+      "replay_returned_same_selection": true,
+      "run_tests": [
+        "tests/discovery_test.py",
+        "tests/payments_test.py",
+        "tests/sticky_failure_test.py"
+      ],
+      "selection_fraction": 0.6,
+      "total_tests": 5
+    },
+    "security": {
+      "manifest_valid": true,
+      "tampered_manifest_rejected": true
+    },
+    "shadow_miss": {
+      "baseline_status": "QUARANTINED",
+      "missed_failures": [
+        "tests/refunds_test.py"
+      ],
+      "next_run_full_suite": true,
+      "safe": false
+    }
+  },
+  "environment": {
+    "machine": "x86_64",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "python": "3.12.14",
+    "sqlite": "3.53.1"
+  },
+  "project": "TestSieve",
+  "validation": "PASS",
+  "validation_seconds": 13.101002
+}
