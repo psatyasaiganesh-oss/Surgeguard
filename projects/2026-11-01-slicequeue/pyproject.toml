@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "slicequeue"
+version = "0.1.0"
+description = "Durable, event-driven bounded-slice agent runtime"
+requires-python = ">=3.11"
+authors = [{name = "Independent engineering project"}]
+dependencies = []
+
+[project.scripts]
+slicequeue = "slicequeue.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["slicequeue*"]

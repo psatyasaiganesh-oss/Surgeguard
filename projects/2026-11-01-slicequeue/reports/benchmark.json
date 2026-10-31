@@ -1,0 +1,22 @@
+{
+  "benchmark": "single-process SQLite synthetic bounded-slice throughput",
+  "database_persisted_at": null,
+  "environment": {
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+    "python": "3.12.14"
+  },
+  "result": {
+    "database_bytes": 995328,
+    "integrity_valid": true,
+    "processed": 500,
+    "processing_events_per_second": 230.0,
+    "processing_seconds": 2.173897,
+    "setup_seconds": 1.669637,
+    "verification_seconds": 0.07009
+  },
+  "scope": "local synthetic measurement; not a production or AWS Infinity comparison",
+  "workload": {
+    "events": 500,
+    "threads": 250
+  }
+}

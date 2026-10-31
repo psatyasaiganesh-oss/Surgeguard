@@ -1,0 +1,95 @@
+{
+  "database_persisted_at": null,
+  "final_versions": {
+    "child": 2,
+    "parent": 4
+  },
+  "idempotency": {
+    "event_replayed": true,
+    "launch_replayed": true,
+    "original_queue_sequence": 1,
+    "replayed_queue_sequence": 1
+  },
+  "integrity": {
+    "audit_entries": 15,
+    "events": 6,
+    "history_entries": 12,
+    "namespaces": 1,
+    "threads": 2,
+    "tool_calls": 1,
+    "tool_tasks": 1,
+    "valid": true
+  },
+  "project": "SliceQueue",
+  "scenario": "at-least-once delivery with three lost acknowledgements",
+  "stats": {
+    "audit_entries": 15,
+    "database_bytes": 106496,
+    "event_status": {
+      "PROCESSED": 6
+    },
+    "events": 6,
+    "history_entries": 12,
+    "namespace": "demo",
+    "outbox_entries": 2,
+    "threads": 2,
+    "tool_calls": 1,
+    "tool_task_status": {
+      "COMPLETED": 1
+    },
+    "tool_tasks": 1
+  },
+  "threads": {
+    "child": {
+      "namespace": "demo",
+      "parent_thread_id": "parent",
+      "replayed": false,
+      "status": "ACTIVE",
+      "thread_id": "child",
+      "version": 0
+    },
+    "parent": {
+      "namespace": "demo",
+      "parent_thread_id": null,
+      "replayed": false,
+      "status": "ACTIVE",
+      "thread_id": "parent",
+      "version": 0
+    }
+  },
+  "tool_result": {
+    "count": 4,
+    "ok": true,
+    "sum": 29.0
+  },
+  "trace": [
+    {
+      "ack_lost": true,
+      "step": "slice_commit"
+    },
+    {
+      "ack_lost": true,
+      "duplicate_tasks_created": 0,
+      "step": "outbox_dispatch"
+    },
+    {
+      "ack_lost": true,
+      "claimed_before_due_time": false,
+      "result_version": 2,
+      "retry_replayed": true,
+      "step": "tool_completion"
+    },
+    {
+      "child_version": 1,
+      "outbox_dispatched": 1,
+      "source_version": 3,
+      "step": "cross_thread_message"
+    },
+    {
+      "child_status": "CLOSED",
+      "step": "timer_and_close",
+      "timer_claimed_early": false,
+      "timer_version": 4
+    }
+  ]
+}

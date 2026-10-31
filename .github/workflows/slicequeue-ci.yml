@@ -1,0 +1,60 @@
+name: SliceQueue CI
+
+on:
+  push:
+    paths:
+      - "projects/2026-11-01-slicequeue/**"
+      - ".github/workflows/slicequeue-ci.yml"
+  pull_request:
+    paths:
+      - "projects/2026-11-01-slicequeue/**"
+      - ".github/workflows/slicequeue-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: slicequeue-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: projects/2026-11-01-slicequeue
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile
+        run: python -m compileall -q slicequeue tests
+      - name: Unit and integration tests
+        run: python -m unittest discover -v
+      - name: Recovery demonstration
+        run: |
+          python -m slicequeue demo > /tmp/slicequeue-demo.json
+          python - <<'PY'
+          import json
+          with open("/tmp/slicequeue-demo.json", encoding="utf-8") as handle:
+              result = json.load(handle)
+          assert result["integrity"]["valid"]
+          assert result["tool_result"]["sum"] == 29.0
+          assert [item["ack_lost"] for item in result["trace"][:3]] == [True, True, True]
+          PY
+      - name: Synthetic smoke benchmark
+        run: |
+          python -m slicequeue benchmark --threads 20 --events-per-thread 2 > /tmp/slicequeue-benchmark.json
+          python - <<'PY'
+          import json
+          with open("/tmp/slicequeue-benchmark.json", encoding="utf-8") as handle:
+              result = json.load(handle)
+          assert result["result"]["processed"] == 40
+          assert result["result"]["integrity_valid"]
+          PY
+      - name: Build container
+        working-directory: .
+        run: docker build -f projects/2026-11-01-slicequeue/Dockerfile projects/2026-11-01-slicequeue
