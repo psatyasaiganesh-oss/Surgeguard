@@ -1,0 +1,7 @@
+Command: python -m unittest discover -s tests -v
+Environment: CPython 3.12.14, Linux x86-64
+Result: PASS
+Tests: 88
+Unittest reported duration: 5.461 seconds
+
+Coverage areas: strict model and JSON validation; Bloom-filter behavior; SSTable format and integrity; WAL framing, replay, and truncation; manifest and segment tamper detection; file locking; idempotency; concurrent sequencing; crash boundaries; snapshot reads; safe compaction and tombstone reclamation; authenticated HTTP behavior; deterministic demo and benchmark invariants.

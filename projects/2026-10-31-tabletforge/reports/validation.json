@@ -1,0 +1,106 @@
+{
+  "benchmark": {
+    "bloom_negative_skips": 490,
+    "compaction_ms": 49.701625,
+    "entries": 3000,
+    "integrity": {
+      "active_snapshots": 0,
+      "latest_sequence": 3300,
+      "manifest_generation": 8,
+      "segment_records": 2850,
+      "segments": 1,
+      "tombstones": 0,
+      "valid": true,
+      "wal_frames": 0
+    },
+    "integrity_scan_ms": 23.81619,
+    "missing_read_requests": 500,
+    "point_read_latency_ms": {
+      "p50": 0.014572,
+      "p95": 0.030655
+    },
+    "read_requests": 1000,
+    "reclaimed_records": 450,
+    "records_after_compaction": 2850,
+    "records_before_compaction": 3300,
+    "segment_reads": 1009,
+    "segments_before_compaction": 7,
+    "write_batches": 30,
+    "write_throughput_entries_per_second": 46753.12
+  },
+  "checks": {
+    "automated_tests": 88,
+    "bytecode_compilation": "PASS",
+    "test_process_seconds": 5.564158,
+    "unittest_reported_seconds": 5.461
+  },
+  "demo": {
+    "bloom_negative_skips": 1,
+    "compaction": {
+      "after_snapshot_release": {
+        "compacted": true,
+        "input_segments": 2,
+        "output_segments": 1,
+        "reclaimed_records": 6,
+        "records_after": 3,
+        "records_before": 9
+      },
+      "deleted_carol_missing": true,
+      "with_snapshot": {
+        "compacted": true,
+        "input_segments": 2,
+        "output_segments": 1,
+        "reclaimed_records": 0,
+        "records_after": 7,
+        "records_before": 7
+      }
+    },
+    "initial_batch": {
+      "end_sequence": 2,
+      "idempotency_key": "batch-initial",
+      "replayed": false,
+      "request_digest": "23c7401760189702b93f59d7caa2b9f431d953cdd777e70bd751cef511049293",
+      "start_sequence": 1
+    },
+    "integrity": {
+      "active_snapshots": 0,
+      "latest_sequence": 9,
+      "manifest_generation": 7,
+      "segment_records": 3,
+      "segments": 1,
+      "tombstones": 0,
+      "valid": true,
+      "wal_frames": 0
+    },
+    "project": "TabletForge",
+    "recovery": {
+      "committed_flush_records": 5,
+      "crash_after_segment_rename_triggered": true,
+      "crash_after_wal_fsync_triggered": true,
+      "durable_order_recovered": true,
+      "orphan_segment_quarantined": true,
+      "partial_wal_bytes_truncated": 2,
+      "partial_wal_tail_recovered": true,
+      "retry_returned_same_sequence": true
+    },
+    "snapshot": {
+      "sequence": 2,
+      "snapshot_id": "before-transfer"
+    },
+    "snapshot_isolation": {
+      "current_alice": "balance=60",
+      "current_bob_missing": true,
+      "snapshot_alice": "balance=100",
+      "snapshot_bob": "balance=75"
+    },
+    "tampered_manifest_rejected": true
+  },
+  "environment": {
+    "machine": "x86_64",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+    "python": "3.12.14"
+  },
+  "project": "TabletForge",
+  "validation": "PASS",
+  "validation_seconds": 5.781698
+}
