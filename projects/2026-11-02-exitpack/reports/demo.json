@@ -1,0 +1,42 @@
+{
+  "integrity": {
+    "audit_entries": 25,
+    "hosts": 8,
+    "namespaces": 2,
+    "plans": 8,
+    "valid": true,
+    "vms": 7
+  },
+  "lost_acknowledgements": {
+    "finish_ack_lost": true,
+    "finish_retry_replayed": true,
+    "placement_ack_lost": true,
+    "placement_retry_replayed": true
+  },
+  "maintenance": {
+    "eager_migrations": 4,
+    "horizon_s": 1800,
+    "host_id": "host-000",
+    "lifetime_aware_migrations": 1
+  },
+  "metrics": {
+    "cluster_revision": 13,
+    "cpu_utilization": 0.166667,
+    "empty_host_percent": 66.6667,
+    "empty_hosts": 4,
+    "hosts": 6,
+    "hosts_fitting_full_size_vm": 4,
+    "memory_utilization": 0.166667,
+    "running_vms": 5
+  },
+  "misprediction_adaptation": {
+    "after_class": 1,
+    "after_state": "RECYCLING",
+    "before_class": 0,
+    "changed_hosts": ["host-000"]
+  },
+  "optimistic_concurrency": {
+    "stale_plan_blocked": true
+  },
+  "project": "ExitPack"
+}

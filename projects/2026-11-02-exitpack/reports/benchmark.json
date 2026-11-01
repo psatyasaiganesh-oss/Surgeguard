@@ -1,0 +1,39 @@
+{
+  "benchmark": "deterministic lifetime-fragmentation stress workload",
+  "comparison": {
+    "additional_empty_hosts": 28,
+    "baseline_empty_hosts_after_short_exit": 8,
+    "empty_host_percentage_point_gain": 70.0,
+    "lifetime_empty_hosts_after_short_exit": 36,
+    "placements_per_second": 207.59
+  },
+  "environment": {
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+    "python": "3.12.14"
+  },
+  "policies": {
+    "BEST_FIT": {
+      "empty_hosts_after_short_exit": 8,
+      "integrity_valid": true,
+      "placements": 256,
+      "schedule_seconds": 1.265013,
+      "short_completions": 224,
+      "verification_seconds": 0.00964
+    },
+    "LIFETIME": {
+      "empty_hosts_after_short_exit": 36,
+      "integrity_valid": true,
+      "placements": 256,
+      "schedule_seconds": 1.201443,
+      "short_completions": 224,
+      "verification_seconds": 0.009246
+    }
+  },
+  "scope": "local adversarial synthetic workload; not Google production data, an ML evaluation, or a claim about LAVA performance",
+  "workload": {
+    "groups_per_policy": 32,
+    "hosts_per_policy": 40,
+    "pattern": "one long-lived VM followed by seven short-lived VMs",
+    "vms_per_policy": 256
+  }
+}

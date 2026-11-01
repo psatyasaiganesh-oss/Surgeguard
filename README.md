@@ -7,6 +7,7 @@ Working, independent implementations inspired by documented company engineering 
 
 | Date | Project | Company problem | Run |
 | --- | --- | --- | --- |
+| 2026-11-02 | [ExitPack](projects/2026-11-02-exitpack/) | Google LAVA: reduce VM resource stranding and recover empty hosts despite uncertain lifetimes and stale placement plans | `cd projects/2026-11-02-exitpack && python -m exitpack demo` |
 | 2026-11-01 | [SliceQueue](projects/2026-11-01-slicequeue/) | AWS/UC Berkeley Infinity: suspend agents during slow tools while preserving ordered, durable, idempotent event processing | `cd projects/2026-11-01-slicequeue && python -m slicequeue demo` |
 | 2026-10-31 | [TabletForge](projects/2026-10-31-tabletforge/) | Google Bigtable: recover committed mutations, bound immutable-file read amplification, and reclaim obsolete versions without reviving deleted data | `cd projects/2026-10-31-tabletforge && python -m tabletforge demo` |
 | 2026-10-30 | [TestSieve](projects/2026-10-30-testsieve/) | Stripe: safely reduce dynamic-language CI work without missing runtime, generated-file, global, discovery, or previously failing dependencies | `cd projects/2026-10-30-testsieve && python -m testsieve demo` |

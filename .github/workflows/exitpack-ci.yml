@@ -1,0 +1,74 @@
+name: ExitPack CI
+
+on:
+  push:
+    paths:
+      - "projects/2026-11-02-exitpack/**"
+      - ".github/workflows/exitpack-ci.yml"
+  pull_request:
+    paths:
+      - "projects/2026-11-02-exitpack/**"
+      - ".github/workflows/exitpack-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: exitpack-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    defaults:
+      run:
+        working-directory: projects/2026-11-02-exitpack
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Compile
+        run: python -m compileall -q exitpack tests
+      - name: Unit and integration tests
+        run: python -m unittest discover -v
+      - name: Failure and adaptation demonstration
+        run: |
+          python -m exitpack demo > /tmp/exitpack-demo.json
+          python - <<'PY'
+          import json
+          with open("/tmp/exitpack-demo.json", encoding="utf-8") as handle:
+              result = json.load(handle)
+          assert result["integrity"]["valid"]
+          assert result["optimistic_concurrency"]["stale_plan_blocked"]
+          assert all(result["lost_acknowledgements"].values())
+          assert result["misprediction_adaptation"]["after_state"] == "RECYCLING"
+          assert result["maintenance"]["lifetime_aware_migrations"] == 1
+          PY
+      - name: Synthetic policy comparison
+        run: |
+          python -m exitpack benchmark --hosts 12 --groups 8 > /tmp/exitpack-benchmark.json
+          python - <<'PY'
+          import json
+          with open("/tmp/exitpack-benchmark.json", encoding="utf-8") as handle:
+              result = json.load(handle)
+          assert result["baseline"]["integrity"]["valid"]
+          assert result["lifetime_aware"]["integrity"]["valid"]
+          assert result["comparison"]["additional_empty_hosts"] == 7
+          PY
+
+  container:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build container
+        run: docker build -t exitpack projects/2026-11-02-exitpack
+      - name: Run container demo
+        run: docker run --rm exitpack demo
